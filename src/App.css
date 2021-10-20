@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root{
+  --primary-color: #2c3e50;
+  --secondary-color: #f8c247;
+  --font-color: #fff;
+  --black-color: #000;
+}
+
+a{
+    color: var(--primary-color);
+}
+
+a:hover{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+nav{
+  color: var(--font-color);
+  background-color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.navbar-nav .nav-link:hover{
+    color:var(--secondary-color)
+}
+
+.navbar .nav-link{
+    color: var(--font-color);
+    margin-right: 18px;
+    font-size: 1.2rem;
+}
+
+#menuBar{
+    display:flex;
+    color:var(--secondary-color);
+    padding-top:10px;
+}
+
+#menuBar h5{
+    padding:0 0 7px 5px;
+    font-size: 18px!important;
+}
+
+.blogPosts .body{
+    background-color: var(--primary-color);
+    color: var(--font-color);
+    padding: 1rem;
+}
+
+.blogPosts #cardButtom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#cardButtom a{
+    padding: 5px 10px;
+    background-color: var(--secondary-color);
+    color: var(--black-color);
+}
+
+#cardButtom a:hover{
+    color: var(--primary-color);
+}
+
+#OTPpromptParentContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#OTPpromptChildContainer{
+    max-width: 25rem;
+    margin-top: 6rem;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: var(--font-color);
+}
+
+#OTPpromptChildContainer h4{
+    display: inline-block;
+    border-bottom: 5px solid var(--secondary-color);
+    margin: 30px;
+}
+
+#verifyBtn{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+#verifyBtn:hover{
+    color: var(--font-color);
+}
+
+/* THIS IS FOR THE LOGIN PAGE */
+
+.form .row{
+    margin:2rem 50px 50px 50px;
+    border: 2px solid #f8c247;
+}
+
+#image{
+    background: linear-gradient(0,  #2c3e50, #f8c247);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ form h2{
+    display: inline-block;
+    font-weight: bold;
+    color: var(--primary-color);
+    border-bottom: 5px solid var(--secondary-color);
+}
+
+form #user{
+    color: var(--primary-color);
+    margin:1.5rem 0 1.5rem 0;
+}
+
+form #pass{
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+form #fgPass, #reg, #signIn{
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+ .form-row{
+     padding: 2rem;
+     line-height: 2;
+ }
+
+ form #login_btn{
+    margin-bottom: 10px;
+    background-color:var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+form #login_btn:hover{
+    color: var(--font-color);
+}
+
+ @media(max-width:576px) {
+     
+    .row{
+        margin: 1rem;
+    }
+
+    .row #image{
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    form h2{
+        font-size: 25px;
+    }
+
+    form #fgPass a, #reg a, #reg{
+        font-size: 15px;
+    }
+
+    #image img{
+        width: 30%;
+        height: 100%;
+    }
+ }
+
+ @media(max-width:992px) {
+
+    .row{
+        margin: 1rem;
+    }
+     
+    .row #image{
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #image img{
+        width: 30%;
+        height: 100%;
+    }
+ }
+
+
+ /* THIS IS FOR THE REGISTRATION PAGE */
+
+.form .row{
+    margin: 50px;
+    border: 2px solid var(--secondary-color);
+}
+
+#image{
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    text-transform: uppercase;
+    display: inline-block;
+    font-weight: bold;
+    color: var(--primary-color);
+    border-bottom: 5px solid var(--secondary-color);
+    margin: 1.5rem 0 1.5rem 0;
+}
+
+#userReg, #passReg, #emailReg, #confirmPassReg{
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+#home, #signInReg{
+    color: var(--primary-color);
+    margin-bottom: 4px;
+
+}
+
+#registerBtn{
+    /* padding: 10px 10rem; */
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+#registerBtn:hover{
+    color: var(--font-color);
+    background-color: var(--primary-color);
+}
+
+ @media(max-width:576px) {
+
+    .row{
+        margin:16px;
+    }
+     
+    #image{
+        padding: 1rem;
+    }
+
+    #image img{
+        width: 30%;
+        height: 100%;
+    }
+
+    h2{
+        font-size: 25px;
+    }
+
+    #signInReg a, #signInReg p, #home a{
+        font-size: 15px;
+    }
+
+    /* #registerBtn{
+        padding: 10px 5rem;
+    } */
+ }
+
+ @media(max-width:992px) {
+
+    .row{
+        margin:16px;
+    }
+
+    #image{
+        padding: 1rem;
+    }
+
+    #image img{
+        width: 30%;
+        height: 100%;
+    }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
