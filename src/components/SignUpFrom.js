@@ -172,10 +172,7 @@ const SignUpForm = () => {
                                     <input type="submit"  className="btn btn-block" id="registerBtn" value="Register" />
                                         <p>Alraedy have an account? <Link to="/SignIn"><span>Sign In</span></Link></p>
                                     </div>
-<<<<<<< HEAD
-=======
                                     <input type="submit" className="btn btn-block" id="registerBtn" value="Register" />
->>>>>>> 0f1307d8ad1a4def4cd282563401beffb1cdeebf
                                     <Spinner />
                                 </div>
                             </form>
