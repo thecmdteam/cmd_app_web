@@ -21,8 +21,9 @@ const OTPprompt = () => {
             <Link to="/SignIn" className="btn btn-block text-center">
                 <span className="btn btn-block" id="verifyBtn"> Verify</span>
             </Link>    
-            <p><FontAwesomeIcon icon={faEnvelope}/>  We just sent your authentication code via email if you did not see the code in your mail box check you spam messages</p>
-
+            <p><FontAwesomeIcon icon={faEnvelope}/>  We just sent your authentication code via email if 
+            you did not see the code in your mail box check you spam messages
+            *if you didn't get the code pls click the link <span style={{ color:"#f8c247", cursor:"hand" }}>Resend code</span> </p>
             </div>
             
         </div>

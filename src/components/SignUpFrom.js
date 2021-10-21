@@ -169,9 +169,9 @@ const SignUpForm = ( ) => {
                                     </select>
                                         </div>
                                     <div className="col-12 text-center" id="signInReg">
+                                    <input type="submit"  className="btn btn-block" id="registerBtn" value="Register" />
                                         <p>Alraedy have an account? <Link to="/SignIn"><span>Sign In</span></Link></p>
                                     </div>
-                                    <input type="submit"  className="btn btn-block" id="registerBtn" value="Register" />
                                     <Spinner />
                                 </div>
                             </form>
