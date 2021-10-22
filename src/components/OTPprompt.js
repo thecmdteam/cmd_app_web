@@ -14,7 +14,7 @@ const OTPprompt = () => {
     const handleVerify = (e) => {
         let userData = JSON.parse(localStorage.getItem("user"))
         console.log(userData)
-        const verifyUserEmailEndpoint = 'https://cmd-backend.herokuapp.com/cmd/users/'+userData.id;
+        const verifyUserEmailEndpoint = 'cmd/users/'+userData.id;
         e.preventDefault();
 
         if(input === ""){
@@ -50,7 +50,7 @@ const OTPprompt = () => {
             <p style={{ color: "red" }} className="text-center">{ errorOTP }</p>
                 <label style={{color: '#fff'}}>Accoount Verification Code</label>
                 <input type="number" class="form-control" name="" placeholder="6-digit code" id=""
-                value={input} onInput={e => setInput(e.target.value)}/>
+                value={input} onChange={e => setInput(e.target.value)}/>
             </div>
             <input type="submit"  className="btn btn-block my-2" id="verifyBtn" value="Register" />
             <p><FontAwesomeIcon icon={faEnvelope}/>  We just sent your authentication code via

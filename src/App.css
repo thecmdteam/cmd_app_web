@@ -96,7 +96,7 @@ nav{
     margin: 30px;
 }
 
-#verifyBtn{
+#verifyBtn, #createPasswordBtn{
     background-color: var(--secondary-color);
     color: var(--primary-color);
     font-weight: bold;
@@ -106,7 +106,7 @@ nav{
     margin-left: 1rem;
 }
 
-#verifyBtn:hover{
+#verifyBtn:hover, #createPasswordBtn:hover{
     color: var(--font-color);
 }
 
