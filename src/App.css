@@ -102,6 +102,8 @@ nav{
     font-weight: bold;
     font-size: 1.1rem;
     text-align: center;
+    width: 91%;
+    margin-left: 1rem;
 }
 
 #verifyBtn:hover{
