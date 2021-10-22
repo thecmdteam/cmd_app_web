@@ -7,6 +7,7 @@ import SignIn from './pages/SignIn';
 import Error from './pages/Error'
 import Form from './pages/Form';
 import OTPprompt from './components/OTPprompt';
+import CreatePassword from './components/CreatePassword'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/SignIn" component={SignIn} />
             <Route path="/Form" component={Form} />
             <Route path="/OTPprompt" component={OTPprompt} />
+            <Route path="/CreatePassword" component={CreatePassword} />
             <Route component={Error} />
           </Switch>
         </div>
