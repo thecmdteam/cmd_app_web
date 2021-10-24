@@ -3,7 +3,6 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 
 
-
 let userData = JSON.parse(localStorage.getItem("user"))
 const changePasswordEndPoint = 'cmd/users/setPassword/'+userData.id;
 let regExpForPassword =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
@@ -24,11 +23,14 @@ const CreatePassword = () => {
             setpassWordCheck("Pls use a password between 8 to 15 characters which contain at least one"+
             "lowercase letter, one uppercase letter, one numeric digit, and one special character")
         }else{
+
             console.log("All inputs are valid")
-            axios.post(changePasswordEndPoint, userData)
-            .then(response => {
-            userData = response.data;
-        });
+            axios({
+                method: 'POST',
+                url: changePasswordEndPoint,
+                headers: { "Content-Type": "text/plain" },
+                data: password
+            }).then(res => {console.log(res)})
         console.log(userData)
         historyRoute.push('/SignIn')
         }

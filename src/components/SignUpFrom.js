@@ -92,14 +92,14 @@ const SignUpForm = () => {
                             <img src={Newcmd} alt="theCmdLogo" className="img-fluid" />
                         </div>
                         <div className="col-lg-6">
-                            <form action="" onSubmit={formik.handleSubmit}>
+                            <form onSubmit={formik.handleSubmit}>
                                 <div className="form-row">
                                     <div className="col-12 mb-3">
                                         <h2>Register</h2>
                                     </div>
 
                                     <div className="col-12" id="userReg">
-                                        <label htmlFor="">First Name</label>
+                                        <label>First Name</label>
                                         <input className="form-control impsClr" placeholder="John"
                                             id="fname"
                                             name="fname"
@@ -114,7 +114,7 @@ const SignUpForm = () => {
                                     </div>
 
                                     <div className="col-12" id="userReg">
-                                        <label htmlFor="">Last Name</label>
+                                        <label>Last Name</label>
                                         <input className="form-control impsClr" placeholder="Doe"
                                             id="lname"
                                             name="lname"
@@ -129,7 +129,7 @@ const SignUpForm = () => {
                                     </div>
 
                                     <div className="col-12" id="emailReg">
-                                        <label htmlFor="">Email</label>
+                                        <label>Email</label>
                                         <input className="form-control impsClr" placeholder="johndoe@gmail.com"
                                             id="email"
                                             name="email"
@@ -144,7 +144,7 @@ const SignUpForm = () => {
                                     </div>
 
                                     <div className="col-12" id="emailReg">
-                                        <label htmlFor="">Phone Number</label>
+                                        <label>Phone Number</label>
                                         <input className="form-control impsClr" placeholder="08012345678"
                                             id="phone"
                                             name="phone"
@@ -159,7 +159,7 @@ const SignUpForm = () => {
                                     </div>
 
                                     <div className="col-12" id="userReg">
-                                        <label htmlFor="">Tech Track</label>
+                                        <label>Tech Track</label>
                                         <select className="form-control" >
                                             <option value="Front End Developer">Front End Developer</option>
                                             <option value="Back End Developer">Backend Developer</option>
