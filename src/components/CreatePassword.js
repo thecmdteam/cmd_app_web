@@ -25,14 +25,13 @@ const CreatePassword = () => {
         }else{
 
             console.log("All inputs are valid")
-            axios({
-                method: 'POST',
-                url: changePasswordEndPoint,
-                headers: { "Content-Type": "text/plain" },
-                data: password
-            }).then(res => {console.log(res)})
-        console.log(userData)
-        historyRoute.push('/SignIn')
+
+            axios.post(changePasswordEndPoint, ''+password, {headers: {'Content-Type': 'text/plain'}})
+            .then(response => {
+            userData = response.data;
+            console.log(response.data);
+            historyRoute.push('/SignIn')
+        });
         }
 
         console.log(password)
