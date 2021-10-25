@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import newcmd from '../assets/newcmd.png'
 
 
@@ -8,6 +8,8 @@ import newcmd from '../assets/newcmd.png'
 const SignIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loginError, setLoginError] = useState("");
+    const historyRoute = useHistory();
 
 
     const handleLogin = e => {
@@ -17,19 +19,19 @@ const SignIn = () => {
 
         console.log(loginUserEmailEndpoint)
 
-        // axios.post(loginUserEmailEndpoint, { password })
-        // .then(res => {
-        //     console.log(res)
-        // }).catch((err) => {
-        //     console.log(err)
-        // })
-
         axios({
             method: 'POST',
             url: loginUserEmailEndpoint,
             headers: { "Content-Type": "text/plain" },
             data: password
-        }).then(res => {console.log(res)})
+        }).then(res => {
+            if(res.data === true){
+                historyRoute.push('/')
+            }else{
+                setLoginError("Incorrect Email or Password")
+            }
+        })
+        
     }
 
     return (
@@ -46,6 +48,7 @@ const SignIn = () => {
                                 <div className="col-12 mb-3">
                                     <h2>LOGIN</h2>
                                 </div>
+                                <span className="text-danger text-center">{ loginError }</span>
                                 <div className="col-12" id="user">
                                     <label>Email</label>
                                     <input type="text" className="form-control"
