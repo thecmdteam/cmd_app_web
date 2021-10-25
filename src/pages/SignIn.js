@@ -13,7 +13,7 @@ const SignIn = () => {
     const handleLogin = e => {
         e.preventDefault();
 
-        const loginUserEmailEndpoint = 'cmd/users/loginByEmail'+email
+        const loginUserEmailEndpoint = 'cmd/users/loginByEmail/'+email
 
         console.log(loginUserEmailEndpoint)
 
