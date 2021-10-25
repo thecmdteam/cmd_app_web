@@ -25,12 +25,14 @@ const CreatePassword = () => {
             "lowercase letter, one uppercase letter, one numeric digit, and one special character")
         }else{
             console.log("All inputs are valid")
-            axios.post(changePasswordEndPoint, userData)
+            axios.post(changePasswordEndPoint, ''+password, {headers: {'Content-Type': 'text/plain'}})
             .then(response => {
             userData = response.data;
+            console.log(response.data);
+            historyRoute.push('/SignIn')
         });
         console.log(userData)
-        historyRoute.push('/SignIn')
+        
         }
 
         console.log(password)
