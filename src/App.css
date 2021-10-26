@@ -131,33 +131,6 @@ nav{
 }
 
 
-
-/* .dropdown {
-    position: absolute;
-    top: 100%;
-    width: 250px;
-    z-index: 2;
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.1);
-    background-color: var(--primary-color);
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  #dropDownItem {
-    padding: 8px 12px;
-  }
-  
-  #dropDownItem:hover {
-    background-color: var(--secondary-color);
-    cursor: pointer;
-  } */
-
-
-
 /* THIS IS FOR THE LOGIN PAGE */
 
 .form .row{
@@ -289,7 +262,6 @@ h2{
 }
 
 #registerBtn{
-    /* padding: 10px 10rem; */
     background-color: var(--secondary-color);
     color: var(--primary-color);
     font-weight: bold;
@@ -328,10 +300,6 @@ div #signInReg p a{
     #signInReg a, #signInReg p, #home a{
         font-size: 15px;
     }
-
-    /* #registerBtn{
-        padding: 10px 5rem;
-    } */
  }
 
  @media(max-width:992px) {
@@ -349,25 +317,3 @@ div #signInReg p a{
         height: 100%;
     }
  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
