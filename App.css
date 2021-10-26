@@ -130,32 +130,14 @@ nav{
     color: var(--font-color);
 }
 
-
-
-/* .dropdown {
-    position: absolute;
-    top: 100%;
-    width: 250px;
-    z-index: 2;
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.1);
-    background-color: var(--primary-color);
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  #dropDownItem {
+  li {
     padding: 8px 12px;
   }
   
-  #dropDownItem:hover {
+  li:hover {
     background-color: var(--secondary-color);
     cursor: pointer;
-  } */
-
+  }
 
 
 /* THIS IS FOR THE LOGIN PAGE */
