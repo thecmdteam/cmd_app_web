@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 
+const CreatePassword = ( props ) => {
+    let userData;
+    userData = props.locaclStorageData;
+    userData = JSON.parse(localStorage.getItem("user"))
+    console.log(localStorage.getItem('user'))
+    const changePasswordEndPoint = 'cmd/users/setPassword/'+userData.id;
+    let regExpForPassword =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
 
-let userData = JSON.parse(localStorage.getItem("user"))
-const changePasswordEndPoint = 'cmd/users/setPassword/'+userData.id;
-let regExpForPassword =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-
-const CreatePassword = () => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setconfirmPassword] = useState('')
     const [passWordCheck, setpassWordCheck] = useState('')
@@ -37,7 +39,6 @@ const CreatePassword = () => {
         console.log(password)
         console.log(confirmPassword)
     }
-
 
         return (
             <div>

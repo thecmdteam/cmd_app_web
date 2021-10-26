@@ -13,6 +13,8 @@ const Home = () => {
         {title: 'Forth title', body:'Forth Post Description goes here', id:'5', image:{newcmd}}
 
     ])
+
+    
     return (
         <div>
             <h2 style={{marginTop: '6rem'}}>Home Page</h2>

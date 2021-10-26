@@ -61,6 +61,10 @@ nav{
     font-size: 18px!important;
 }
 
+/* .navbar-toggler-icon{
+    padding-bottom: 5px;
+} */
+
 #formLinks{
     color: var(--primary-color);
 }

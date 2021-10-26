@@ -4,6 +4,7 @@ import Newcmd from '../assets/newcmd.png'
 import { useFormik } from 'formik';
 import { trackPromise } from 'react-promise-tracker';
 import Spinner from './Spinner'
+import CreatePassword from './CreatePassword';
 
 const postUserEndpoint = 'https://cmd-backend.herokuapp.com/cmd/users';
 
@@ -39,6 +40,9 @@ const validate = values => {
 
 const SignUpForm = () => {
 
+    
+
+    // eslint-disable-next-line
     const [state, setState] = useState(false);
     const [emailError, setEmailError] = useState("");
     const historyRoute = useHistory()
@@ -74,7 +78,7 @@ const SignUpForm = () => {
                             .then((data) => {
                                 console.log(data);
                                 localStorage.setItem('user', JSON.stringify(data));
-                                console.log(data)
+                                console.log(localStorage.getItem('user'))
                             })}).catch((err) => {
                                 console.log(err)
                             }))
@@ -84,9 +88,11 @@ const SignUpForm = () => {
             setState({
                 values: [{}]
             });
-            console.log(state)
         },
     });
+
+    const locaclStorageData = localStorage.getItem('user');
+    <CreatePassword locaclStorageData={locaclStorageData}/>
 
     return (
         <div>
