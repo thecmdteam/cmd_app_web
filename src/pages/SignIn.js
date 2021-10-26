@@ -3,9 +3,8 @@ import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import newcmd from '../assets/newcmd.png'
 
-
-let userData = JSON.parse(localStorage.getItem("user"))
-console.log(userData)
+// eslint-disable-next-line
+// let userData = JSON.parse(localStorage.getItem("user"))
 
 const SignIn = () => {
     const [email, setEmail] = useState("");

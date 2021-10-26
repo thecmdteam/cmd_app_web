@@ -20,13 +20,18 @@ class Navbar extends React.Component {
             <nav className="navbar navbar-expand-lg fixed-top">
                 <div className="container">
                     <img src={newcmd} alt="TheCmdLogo"  style={{ width: '10rem'}}/>
-                    <div className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" 
-                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+
+
+                    <div className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <div id="menuBar">
                             <FontAwesomeIcon icon={faBars}/>
                             <h5 id="navBarToggler">{menu}</h5>
                         </div>
                     </div>
+
+
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto">
                             <Link className="nav-link active" to="/" id="hover">{home}</Link>
