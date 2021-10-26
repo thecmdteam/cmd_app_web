@@ -46,10 +46,10 @@ const OTPprompt = () => {
             </div>
 
             <form onSubmit={ handleVerify }>
-            <div class="col-12" id="OTPcode">
+            <div className="col-12" id="OTPcode">
             <p style={{ color: "red" }} className="text-center">{ errorOTP }</p>
                 <label style={{color: '#fff'}}>Accoount Verification Code</label>
-                <input type="number" class="form-control" name="" placeholder="6-digit code" id=""
+                <input type="number" className="form-control" name="" placeholder="6-digit code" id=""
                 value={input} onChange={e => setInput(e.target.value)}/>
             </div>
             <input type="submit"  className="btn btn-block my-2" id="verifyBtn" value="Register" />
