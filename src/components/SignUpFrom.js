@@ -40,6 +40,7 @@ const validate = values => {
 const SignUpForm = () => {
 
     const [state, setState] = useState(false);
+    const [emailError, setEmailError] = useState("");
     const historyRoute = useHistory()
 
     const formik = useFormik({
@@ -64,12 +65,16 @@ const SignUpForm = () => {
                 })
                     .then((res) => {
                         console.log(res)
+                        if(res.status === 500){
+                            setEmailError("Email already exist")
+                        }else{
+                            historyRoute.push('/OTPprompt')
+                        }
                         res.json()
                             .then((data) => {
                                 console.log(data);
                                 localStorage.setItem('user', JSON.stringify(data));
                                 console.log(data)
-                                historyRoute.push('/OTPprompt')
                             })}).catch((err) => {
                                 console.log(err)
                             }))
@@ -97,7 +102,7 @@ const SignUpForm = () => {
                                     <div className="col-12 mb-3">
                                         <h2>Register</h2>
                                     </div>
-
+                                        <span className="text-danger">{ emailError }</span>
                                     <div className="col-12" id="userReg">
                                         <label>First Name</label>
                                         <input className="form-control impsClr" placeholder="John"
@@ -170,7 +175,7 @@ const SignUpForm = () => {
                                     </div>
                                     <div className="col-12 text-center" id="signInReg">
                                     <input type="submit"  className="btn btn-block" id="registerBtn" value="Register" />
-                                        <p>Alraedy have an account? <Link to="/SignIn"><span>Sign In</span></Link></p>
+                                        <p style={{color:'#2c3e50'}}>Alraedy have an account? <Link to="/SignIn" id="formLinks">Sign In</Link></p>
                                     </div>
                                     <Spinner />
                                 </div>
@@ -182,5 +187,6 @@ const SignUpForm = () => {
         </div>
     )
 }
+
 
 export default SignUpForm

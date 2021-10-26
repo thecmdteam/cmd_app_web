@@ -4,6 +4,8 @@ import { Link, useHistory } from 'react-router-dom'
 import newcmd from '../assets/newcmd.png'
 
 
+let userData = JSON.parse(localStorage.getItem("user"))
+console.log(userData)
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
@@ -19,18 +21,18 @@ const SignIn = () => {
 
         console.log(loginUserEmailEndpoint)
 
-        axios({
-            method: 'POST',
-            url: loginUserEmailEndpoint,
-            headers: { "Content-Type": "text/plain" },
-            data: password
-        }).then(res => {
-            if(res.data === true){
-                historyRoute.push('/')
-            }else{
-                setLoginError("Incorrect Email or Password")
+            axios.post(loginUserEmailEndpoint, password, {headers: { "Content-Type": "text/plain" }})
+        .then(res =>{
+            console.log(res.status)
+            if(res.status === 200){
+                console.log("Loged In")
+                historyRoute.push("/")
+                console.log(res.status)
             }
+        }).catch(err=>{
+            setLoginError("Incorrect email or password")
         })
+       
         
     }
 
@@ -48,7 +50,7 @@ const SignIn = () => {
                                 <div className="col-12 mb-3">
                                     <h2>LOGIN</h2>
                                 </div>
-                                <span className="text-danger text-center">{ loginError }</span>
+                                <p className="text-danger">{ loginError }</p>
                                 <div className="col-12" id="user">
                                     <label>Email</label>
                                     <input type="text" className="form-control"
@@ -61,10 +63,10 @@ const SignIn = () => {
                                 </div>
                                 <button type="submit" className="btn btn-block" id="login_btn">Login</button>
                                 <div className="col-12 text-center" id="fgPass">
-                                    <Link to="#">Forgot Password</Link><br/>
+                                    <Link to="#" id="formLinks">Forgot Password</Link><br/>
                                 </div>
                                 <div className="col-12 text-center" id="reg">
-                                    <p>Don't have an account? <Link to="/Form">Sign Up</Link></p>
+                                    <p>Don't have an account? <Link to="/Form" id="formLinks">Sign Up</Link></p>
                                 </div>
                             </div>
                         </form>
