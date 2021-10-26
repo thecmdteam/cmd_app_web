@@ -2,7 +2,7 @@ import React from 'react';
 import newcmd from '../assets/newcmd.png';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUserCircle, faSignInAlt, faDoorOpen, faEye } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faUserCircle, faSignInAlt, faEye } from '@fortawesome/free-solid-svg-icons';
 
 class Navbar extends React.Component {
 
