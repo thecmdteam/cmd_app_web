@@ -18,9 +18,9 @@ const OTPprompt = () => {
         e.preventDefault();
 
         if(input === ""){
-            setErrorOTP(" Pls Input the OTP sent to you stupid boy")
+            setErrorOTP("Pls Input the OTP sent to you")
         }else if(input !== userData.otp){
-            setErrorOTP(" Incorrect OTP idiot")
+            setErrorOTP("Incorrect OTP")
         }else{
             userData.isEmailVerified = true
             console.log(userData)

@@ -2,9 +2,12 @@ import React from 'react';
 import newcmd from '../assets/newcmd.png';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUserCircle, faSignInAlt, faEye } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faUserCircle, faSignInAlt, faDoorOpen, faEye } from '@fortawesome/free-solid-svg-icons';
+// import { useHistory } from 'react-router-dom'
 
 class Navbar extends React.Component {
+
+    // historyRoute = useHistory();
 
     state = {
         home: 'Home',
@@ -43,12 +46,15 @@ class Navbar extends React.Component {
                                 <FontAwesomeIcon className="userIcon" icon={faUserCircle}/>
                                 </Link>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <Link to="#" className="dropdown-item">
+                                <Link to="/ViewProfile" className="dropdown-item">
                                     <FontAwesomeIcon className="mr-2 fa-1x" icon={ faEye }/>View Profile
                                 </Link>
                                 <div className="dropdown-divider"></div>
                                 <Link to="/SignIn"className="dropdown-item">
                                     <FontAwesomeIcon className="mr-2 fa-1x" icon={ faSignInAlt }/>{signIn}
+                                </Link>
+                                <Link to="/"className="dropdown-item">
+                                    <FontAwesomeIcon className="mr-2 fa-1x" icon={ faDoorOpen }/>Sign Out
                                 </Link>
                                 {/* <a className="dropdown-item" href="#">Something else here</a> */}
                                 </div>

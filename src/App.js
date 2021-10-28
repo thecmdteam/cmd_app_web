@@ -3,11 +3,13 @@ import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
-import SignIn from './pages/SignIn';
 import Error from './pages/Error'
 import Form from './pages/Form';
+import SignIn from './components/SignIn';
 import OTPprompt from './components/OTPprompt';
-import CreatePassword from './components/CreatePassword'
+import CreatePassword from './components/CreatePassword';
+import ViewProfile from './components/ViewProfile';
+// import ProtectectedRoutes from './components/ProtectectedRoutes'
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
             <Route path="/Form" component={Form} />
             <Route path="/OTPprompt" component={OTPprompt} />
             <Route path="/CreatePassword" component={CreatePassword} />
+            <Route path="/ViewProfile" component={ViewProfile} />
             <Route component={Error} />
           </Switch>
         </div>
