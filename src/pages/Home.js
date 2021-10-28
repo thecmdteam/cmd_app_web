@@ -21,6 +21,7 @@ const Home = () => {
             
             {/* i passed in the blogs in here as a props */}
                <BlogPosts blogs={blogs}/>
+               <h2>You are not loged in</h2>
         </div>
     )
 }

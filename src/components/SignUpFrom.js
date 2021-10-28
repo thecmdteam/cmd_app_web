@@ -6,6 +6,8 @@ import { trackPromise } from 'react-promise-tracker';
 import Spinner from './Spinner'
 import CreatePassword from './CreatePassword';
 
+
+
 const postUserEndpoint = 'https://cmd-backend.herokuapp.com/cmd/users';
 
 const validate = values => {
@@ -40,8 +42,6 @@ const validate = values => {
 
 const SignUpForm = () => {
 
-    
-
     // eslint-disable-next-line
     const [state, setState] = useState(false);
     const [emailError, setEmailError] = useState("");
@@ -53,6 +53,7 @@ const SignUpForm = () => {
             lname: '',
             email: '',
             phone: '',
+            techtrack: '',
         },
         validate,
         onSubmit: values => {
@@ -92,7 +93,7 @@ const SignUpForm = () => {
     });
 
     const locaclStorageData = localStorage.getItem('user');
-    <CreatePassword locaclStorageData={locaclStorageData}/>
+    <CreatePassword locaclStorageData={locaclStorageData}/>;
 
     return (
         <div>
@@ -172,11 +173,11 @@ const SignUpForm = () => {
                                     <div className="col-12" id="userReg">
                                         <label>Tech Track</label>
                                         <select className="form-control" >
-                                            <option value="Front End Developer">Front End Developer</option>
-                                            <option value="Back End Developer">Backend Developer</option>
-                                            <option value="Mobile">Mobile</option>
-                                            <option value="UI/UX">UI/UX</option>
-                                            <option value="Full Stack">Full Stack</option>
+                                            <option value={formik.values.techtrack}>Front End Developer</option>
+                                            <option value={formik.values.techtrack}>Backend Developer</option>
+                                            <option value={formik.values.techtrack}>Mobile</option>
+                                            <option value={formik.values.techtrack}>UI/UX</option>
+                                            <option value={formik.values.techtrack}>Full Stack</option>
                                         </select>
                                     </div>
                                     <div className="col-12 text-center" id="signInReg">

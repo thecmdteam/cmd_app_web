@@ -135,6 +135,31 @@ nav{
 }
 
 
+#viewProfile{
+    font-size: 25px;
+    color: var(--primary-color);
+}
+
+#viewProfile span{
+    display: inline-block;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+#viewProfile img{
+    width: 70%;
+}
+
+#updateDelBack{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+}
+
+#updateDelBack .btn{
+    border: none!important;
+}
+
 /* THIS IS FOR THE LOGIN PAGE */
 
 .form .row{

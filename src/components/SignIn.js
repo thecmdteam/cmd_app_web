@@ -1,12 +1,14 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import newcmd from '../assets/newcmd.png'
+import ViewProfile from './ViewProfile';
 
 // eslint-disable-next-line
 // let userData = JSON.parse(localStorage.getItem("user"))
 
 const SignIn = () => {
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loginError, setLoginError] = useState("");
@@ -26,14 +28,18 @@ const SignIn = () => {
             if(res.status === 200){
                 console.log("Loged In")
                 historyRoute.push("/")
-                console.log(res.status)
             }
+            console.log(res.data)
+            let locaclStorageData = localStorage.setItem('user', JSON.stringify(res.data));
+            <ViewProfile locaclStorageData={locaclStorageData}/>;
         }).catch(err=>{
             setLoginError("Incorrect email or password")
         })
        
         
     }
+
+    
 
     return (
     <>

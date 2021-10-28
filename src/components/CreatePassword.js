@@ -3,8 +3,8 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 
 const CreatePassword = ( props ) => {
-    let userData;
-    userData = props.locaclStorageData;
+    
+    let userData = props.locaclStorageData;
     userData = JSON.parse(localStorage.getItem("user"))
     console.log(localStorage.getItem('user'))
     const changePasswordEndPoint = 'cmd/users/setPassword/'+userData.id;
