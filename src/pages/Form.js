@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import SignUpFrom from '../components/SignUpFrom'
+import SignUpForm from '../components/SignUpForm'
 import OTPprompt from '../components/OTPprompt'
 
 const Form = () => {
@@ -12,7 +12,7 @@ const Form = () => {
 
     return (
         <div>
-            { !formIsSubmitted ? <SignUpFrom submitForm={ submitForm }/> : <OTPprompt />}
+            { !formIsSubmitted ? <SignUpForm submitForm={ submitForm }/> : <OTPprompt />}
         </div>
     )
 }
