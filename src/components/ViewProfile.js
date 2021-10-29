@@ -24,7 +24,7 @@ const ViewProfile = (props) => {
     
     return (
         <div>
-            <h2 style={{marginTop: '6rem'}}>Users profile</h2>
+            <h2 style={{marginTop: '6rem'}}>Profile</h2>
             <div className="container" id="viewProfile">
 
                 <div className="row">
