@@ -6,15 +6,18 @@ import { useHistory } from 'react-router-dom'
 import Spinner from './Spinner'
 // import CreatePassword from './CreatePassword';
 
-const phoneRegex = /^\+?\d+$/
-
-let userData = JSON.parse(localStorage.getItem("user"))
-console.log(localStorage.getItem('user')) 
-const updateUserEndpoint = 'https://cmd-backend.herokuapp.com/cmd/users/'+ userData.id;
-console.log(updateUserEndpoint)
 
 
-const SignUpForm = () => {
+
+const SignUpForm = ( props ) => {
+
+    const phoneRegex = /^\+?\d+$/
+
+    let userData = props.locaclStorageData;
+    userData = JSON.parse(localStorage.getItem("user"))
+    console.log(localStorage.getItem('user'))
+    const updateUserEndpoint = 'https://cmd-backend.herokuapp.com/cmd/users/'+ userData.id;
+    console.log(updateUserEndpoint)
 
     const [emailError, setEmailError] = useState("");
     const historyRoute = useHistory()

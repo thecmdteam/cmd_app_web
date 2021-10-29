@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faUser, faEdit, faAngleLeft, faTrash, faMobileAlt, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import UpdateProfile from './UpdateProfile';
 
 const ViewProfile = (props) => {
 
@@ -25,6 +26,8 @@ const ViewProfile = (props) => {
     const updateHandler = () =>{
         historyRoute.push('/UpdateProfile')
     }
+
+    <UpdateProfile locaclStorageData={localStorage.getItem('user')}/>;
     
     return (
         <div>
