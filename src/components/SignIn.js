@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import newcmd from '../assets/newcmd.png'
 import ViewProfile from './ViewProfile';
+import { trackPromise } from 'react-promise-tracker';
+import Spinner from './Spinner'
 
 // eslint-disable-next-line
 // let userData = JSON.parse(localStorage.getItem("user"))
@@ -22,19 +24,22 @@ const SignIn = () => {
 
         console.log(loginUserEmailEndpoint)
 
+        trackPromise(
             axios.post(loginUserEmailEndpoint, password, {headers: { "Content-Type": "text/plain" }})
-        .then(res =>{
-            console.log(res.status)
-            if(res.status === 200){
-                console.log("Loged In")
-                historyRoute.push("/")
-            }
-            console.log(res.data)
-            let locaclStorageData = localStorage.setItem('user', JSON.stringify(res.data));
-            <ViewProfile locaclStorageData={locaclStorageData}/>;
-        }).catch(err=>{
-            setLoginError("Incorrect email or password")
-        })
+                .then(res =>{
+                    console.log(res.status)
+                    if(res.status === 200){
+                        console.log("Loged In")
+                        historyRoute.push("/")
+                    }
+                    console.log(res.data)
+                    let locaclStorageData = localStorage.setItem('user', JSON.stringify(res.data));
+                    <ViewProfile locaclStorageData={locaclStorageData}/>;
+                }).catch(err=>{
+                    setLoginError("Incorrect email or password")
+                })
+        );
+            
        
         
     }
@@ -73,6 +78,7 @@ const SignIn = () => {
                                 <div className="col-12 text-center" id="reg">
                                     <p>Don't have an account? <Link to="/Form" id="formLinks">Sign Up</Link></p>
                                 </div>
+                                <Spinner />
                             </div>
                         </form>
                     </div>

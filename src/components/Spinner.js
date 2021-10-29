@@ -16,7 +16,7 @@ const { promiseInProgress } = usePromiseTracker({area: props.area});
         color="#f8c247"
         height={40}
         width={40}
-        timeout={3000} //3 secs
+        timeout={7000} //3 secs
         />
       :
         null
