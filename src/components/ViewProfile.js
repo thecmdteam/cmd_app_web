@@ -21,6 +21,10 @@ const ViewProfile = (props) => {
         localStorage.clear()
         historyRoute.push('/')
     }
+
+    const updateHandler = () =>{
+        historyRoute.push('/UpdateProfile')
+    }
     
     return (
         <div>
@@ -64,7 +68,7 @@ const ViewProfile = (props) => {
                     <div className="btn btn-secondary">
                         <FontAwesomeIcon className="mr-2 fa-1x" icon={ faAngleLeft }/>Back
                     </div>
-                    <div className="btn btn-info mx-5" >
+                    <div className="btn btn-info mx-5" onClick={ updateHandler }>
                         <FontAwesomeIcon className="mr-2 fa-1x" icon={ faEdit }/>Update
                     </div>
                     <div className="btn btn-danger" onClick={ deleteAccount }>

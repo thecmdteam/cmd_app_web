@@ -9,6 +9,7 @@ import SignIn from './components/SignIn';
 import OTPprompt from './components/OTPprompt';
 import CreatePassword from './components/CreatePassword';
 import ViewProfile from './components/ViewProfile';
+import UpdateProfile from './components/UpdateProfile';
 // import ProtectectedRoutes from './components/ProtectectedRoutes'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/OTPprompt" component={OTPprompt} />
             <Route path="/CreatePassword" component={CreatePassword} />
             <Route path="/ViewProfile" component={ViewProfile} />
+            <Route path="/UpdateProfile" component={UpdateProfile} />
             <Route component={Error} />
           </Switch>
         </div>
