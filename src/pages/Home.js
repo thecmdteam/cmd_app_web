@@ -1,7 +1,9 @@
-import React from 'react'
-import {useState} from 'react'
+import React, { useState } from 'react'
+// import {} from 'react'
 import BlogPosts from '../components/BlogPosts'
 import newcmd from '../assets/newcmd.png'
+
+
 
 const Home = () => {
     const [blogs] = useState([
@@ -14,6 +16,21 @@ const Home = () => {
 
     ])
 
+    // useEffect(() => {
+    //     let userData = {
+    //         email: "",
+    //         fname: "",
+    //         id: "",
+    //         imageUrl: "",
+    //         isEmailVerified: false,
+    //         lname: "",
+    //         phone: "",
+    //         techTrack: "",
+    //     }
+    //     localStorage.setItem("user", JSON.stringify(userData))
+    //     console.log(localStorage.getItem('user'))
+    //     console.log(userData.email)
+    // }, [])
     
     return (
         <div>
