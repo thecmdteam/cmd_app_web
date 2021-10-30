@@ -4,6 +4,7 @@ import newcmd from '../assets/newcmd.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope  } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import CreatePassword from './CreatePassword';
 
 
 const OTPprompt = () => {
@@ -33,7 +34,8 @@ const OTPprompt = () => {
         }
     };
 
-    
+    <CreatePassword locaclStorageData={localStorage.getItem('user')}/>
+    console.log(localStorage.getItem('user'))
 
     return (
         <div className="container" id="OTPpromptParentContainer">

@@ -5,7 +5,6 @@ import { trackPromise } from 'react-promise-tracker';
 import { Link, useHistory } from 'react-router-dom'
 import Spinner from './Spinner'
 import Newcmd from '../assets/newcmd.png'
-import CreatePassword from './CreatePassword';
 
 const phoneRegex = /^\+?\d+$/
 const postUserEndpoint = 'https://cmd-backend.herokuapp.com/cmd/users';
@@ -71,7 +70,7 @@ const SignUpForm = () => {
       }}
     >
 
-     <CreatePassword locaclStorageData={localStorage.getItem('user')}/>;
+     {/* <CreatePassword locaclStorageData={localStorage.getItem('user')}/> */}
 
       <Form>
       <section className="form" style={{ marginTop: '6rem' }}>
