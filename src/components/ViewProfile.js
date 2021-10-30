@@ -31,7 +31,7 @@ const ViewProfile = (props) => {
     
     return (
         <div>
-            <h2 style={{marginTop: '6rem'}}>Profile</h2>
+            <h2 style={{marginTop: '6rem'}}><strong>Profile</strong></h2>
             <div className="container" id="viewProfile">
 
                 <div className="row">
@@ -40,6 +40,9 @@ const ViewProfile = (props) => {
                     </div>
                     
                     <div className="col-lg-6 col-sm-12">
+                        <div className="pb-4">
+                            <h2><strong>Bio Data</strong></h2>
+                        </div>
                         <span><FontAwesomeIcon className="mr-2 fa-2x" icon={ faUser }/>First Name</span>
                         <p className="mt-2 mb-4">
                             <strong style={{ fontSize:"30px" }}>{ userData.fname }</strong>
@@ -66,6 +69,30 @@ const ViewProfile = (props) => {
                         </p>
                     </div>
                 </div>
+                <hr />
+
+                    <div className="row">
+                        <div className="col-lg-6 col-sm-12">
+                            <div className="pb-4">
+                                <h2><strong>Useful Links</strong></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-6 col-sm-12">
+                            <span><FontAwesomeIcon className="mr-2 fa-2x" icon={ faMobileAlt }/>Mobile Number</span>
+                            <p className="mt-2 mb-4">
+                                <strong style={{ fontSize:"30px" }}>{ userData.phone }</strong>
+                            </p>
+                        </div>
+                        <div className="col-lg-6 col-sm-12">
+                            <span><FontAwesomeIcon className="mr-2 fa-2x" icon={ faMobileAlt }/>Mobile Number</span>
+                            <p className="mt-2 mb-4">
+                                <strong style={{ fontSize:"30px" }}>{ userData.phone }</strong>
+                            </p>
+                        </div>
+                    </div>
+                
 
                 <div id="updateDelBack">
                     <div className="btn btn-secondary">
