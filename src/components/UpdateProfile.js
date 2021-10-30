@@ -4,20 +4,17 @@ import * as Yup from 'yup';
 import { trackPromise } from 'react-promise-tracker';
 import { useHistory } from 'react-router-dom'
 import Spinner from './Spinner'
-// import CreatePassword from './CreatePassword';
+import axios from 'axios'
+
+const phoneRegex = /^\+?\d+$/
+
+let userData = JSON.parse(localStorage.getItem("user"))
+console.log(localStorage.getItem('user')) 
+const updateUserEndpoint = 'users/'+ userData.id;
+console.log(updateUserEndpoint)
 
 
-
-
-const SignUpForm = ( props ) => {
-
-    const phoneRegex = /^\+?\d+$/
-
-    let userData = props.locaclStorageData;
-    userData = JSON.parse(localStorage.getItem("user"))
-    console.log(localStorage.getItem('user'))
-    const updateUserEndpoint = 'https://cmd-backend.herokuapp.com/cmd/users/'+ userData.id;
-    console.log(updateUserEndpoint)
+const SignUpForm = () => {
 
     const [emailError, setEmailError] = useState("");
     const historyRoute = useHistory()
@@ -46,33 +43,21 @@ const SignUpForm = ( props ) => {
 
       onSubmit={(values) => {
         trackPromise(
-            fetch(updateUserEndpoint, {
-                method: 'PUT',
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body:
-                    JSON.stringify(values)
-            })
-                .then((res) => {
-                    console.log(res)
-                    res.json()
-                        .then((data) => {
-                            if(userData.email === data.email){
-                                setEmailError("Email already exist")
-                            }else{
-                                localStorage.setItem('user', JSON.stringify(data));
-                                console.log(localStorage.getItem('user'))
-                                historyRoute.push('/ViewProfile')
-                            }
-                        })}).catch((err) => {
-                            console.log(err)
-                        })
+
+            axios.put(updateUserEndpoint, values, {headers: {"Content-type": "application/json"}})
+                .then(response => {
+                    console.log(response.data)
+                    console.log(response)
+                    console.log(response.status)
+                        localStorage.setItem('user', JSON.stringify(response.data));
+                        console.log(localStorage.getItem('user'))
+                        historyRoute.push('/ViewProfile')
+                    }).catch(() => {
+                    setEmailError("Email already exist")
+                })
                         )
       }}
     >
-
-     {/* <CreatePassword locaclStorageData={localStorage.getItem('user')}/>; */}
 
       <Form>
       <section className="form" style={{ marginTop: '6rem' }}>

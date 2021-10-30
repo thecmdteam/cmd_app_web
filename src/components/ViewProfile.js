@@ -13,7 +13,7 @@ const ViewProfile = (props) => {
     userData = JSON.parse(localStorage.getItem("user"))
     console.log(userData.id)
 
-    const deleteUserAccountEndpoint = 'cmd/users/'+userData.id;
+    const deleteUserAccountEndpoint = 'users/'+userData.id;
     console.log(deleteUserAccountEndpoint)
 
     const deleteAccount = () =>{

@@ -7,7 +7,7 @@ const CreatePassword = ( props ) => {
     let userData = props.locaclStorageData;
     userData = JSON.parse(localStorage.getItem("user"))
     console.log(localStorage.getItem('user'))
-    const changePasswordEndPoint = 'cmd/users/setPassword/'+userData.id;
+    const changePasswordEndPoint = 'users/setPassword/'+userData.id;
     let regExpForPassword =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
 
     const [password, setPassword] = useState('')
