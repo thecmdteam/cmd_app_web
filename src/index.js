@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-axios.defaults.baseURL = 'https://cmd-backend.herokuapp.com/'
+axios.defaults.baseURL = 'https://cmd-backend.herokuapp.com/cmd/'
 ReactDOM.render(
   <React.StrictMode>
     <App />

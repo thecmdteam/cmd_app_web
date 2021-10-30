@@ -15,7 +15,7 @@ const OTPprompt = () => {
     const handleVerify = (e) => {
         let userData = JSON.parse(localStorage.getItem("user"))
         console.log(userData)
-        const verifyUserEmailEndpoint = 'cmd/users/'+userData.id;
+        const verifyUserEmailEndpoint = 'users/'+userData.id;
         e.preventDefault();
 
         if(input === ""){
