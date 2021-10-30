@@ -8,13 +8,15 @@ import axios from 'axios'
 
 const phoneRegex = /^\+?\d+$/
 
-let userData = JSON.parse(localStorage.getItem("user"))
-console.log(localStorage.getItem('user')) 
-const updateUserEndpoint = 'users/'+ userData.id;
-console.log(updateUserEndpoint)
 
+const SignUpForm = ( props ) => {
 
-const SignUpForm = () => {
+    let userData = props.locaclStorageData;
+    userData = JSON.parse(localStorage.getItem("user"))
+    console.log(localStorage.getItem('user'))
+    const updateUserEndpoint = 'users/setPassword/'+userData.id;
+    console.log(updateUserEndpoint)
+
 
     const [emailError, setEmailError] = useState("");
     const historyRoute = useHistory()
@@ -59,7 +61,7 @@ const SignUpForm = () => {
       onSubmit={(values) => {
         trackPromise(
 
-            axios.put(updateUserEndpoint, values)
+            axios.put( updateUserEndpoint, values)
                 .then(response => {
                     console.log(response.data)
                     console.log(response)
