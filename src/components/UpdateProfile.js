@@ -27,24 +27,39 @@ const SignUpForm = () => {
             lname: '', 
             email: '',
             phone: '', 
-            techTrack:'' 
+            techTrack:'',
+            dob: new Date(),
+            github:'',
+            linkedIn: '',
+            profilePic:'',
         }}
 
       validationSchema={Yup.object({
         fname: Yup.string()
-          .max(15, 'Must be 15 characters or less'),
+          .max(15, 'Must be 15 characters or less')
+          .required('This field is Required'),
           lname: Yup.string()
-          .max(20, 'Must be 20 characters or less'),
+          .max(20, 'Must be 20 characters or less')
+          .required('This field is Required'),
           email: Yup.string()
-          .email('Invalid email address'),
-          phone: Yup.string().matches(phoneRegex, 'Phone number is not valid'),
-          techTrack: Yup.string(),
+          .email('Invalid email address')
+          .required('Email field is required'),
+          phone: Yup.string().matches(phoneRegex, 'Phone number is not valid')
+          .required("This field is required"),
+          techTrack: Yup.string()
+          .required("This field is required"),
+          dob: Yup.date()
+          .required('This field is required'),
+          github: Yup.string()
+          .required("This field is required"),
+          linkedIn: Yup.string()
+          .required("This field is required")
       })}
 
       onSubmit={(values) => {
         trackPromise(
 
-            axios.put(updateUserEndpoint, values, {headers: {"Content-type": "application/json"}})
+            axios.put(updateUserEndpoint, values)
                 .then(response => {
                     console.log(response.data)
                     console.log(response)
@@ -87,6 +102,14 @@ const SignUpForm = () => {
                         </div>
                     </div>
 
+                    <div className="col-12" id="userReg">
+                        <label>Date of Birth</label><br />
+                        <Field name="dob" type="date" className="form-control"/>
+                        <div className="text-danger">
+                            <ErrorMessage name="dob" />
+                        </div>
+                    </div>
+
                     <div className="col-12" id="emailReg">
                     <label>Email</label><br />
                         <Field name="email" type="email" className="form-control"/>
@@ -108,6 +131,30 @@ const SignUpForm = () => {
                         <Field name="techTrack" type="text" className="form-control"/>
                         <div className="text-danger">
                             <ErrorMessage name="techTrack" />
+                        </div>
+                    </div>
+
+                    <div className="col-12" id="emailReg">
+                    <label>Github Link</label><br />
+                        <Field name="github" type="text" className="form-control"/>
+                        <div className="text-danger">
+                            <ErrorMessage name="github" />
+                        </div>
+                    </div>
+
+                    <div className="col-12" id="emailReg">
+                    <label>LinkedIn Link</label><br />
+                        <Field name="linkedIn" type="text" className="form-control"/>
+                        <div className="text-danger">
+                            <ErrorMessage name="linkedIn" />
+                        </div>
+                    </div>
+
+                    <div className="col-12" id="emailReg">
+                    <label>Profile Picture</label><br />
+                        <Field name="profilePic" type="file" className="form-control"/>
+                        <div className="text-danger">
+                            <ErrorMessage name="profilePic" />
                         </div>
                     </div>
 
