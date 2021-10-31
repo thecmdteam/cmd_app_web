@@ -14,13 +14,58 @@ const SignUpForm = ( props ) => {
     let userData = props.locaclStorageData;
     userData = JSON.parse(localStorage.getItem("user"))
     console.log(localStorage.getItem('user'))
-    const updateUserEndpoint = 'users/setPassword/'+userData.id;
+    const updateUserEndpoint = 'users/'+userData.id;
     console.log(updateUserEndpoint)
 
 
     const [emailError, setEmailError] = useState("");
-    const historyRoute = useHistory()
+    const historyRoute = useHistory();
+
+    // const [fname, setFname] = useState("");
+    // const [lname, setLname] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [dob, setDob] = useState("");
+    // const [phone, setPhone] = useState("");
+    // const [github, setGithub] = useState("");
+    // const [techtrack, setTechTrack] = useState("");
+    // const [linkedIn, setLinkedIn] = useState("");
+    // const [imgurl, setImgUrl] = useState("");
+
+    // let updatedValues = {
+    //     fname: fname,
+    //     lname: lname, 
+    //     email: email,
+    //     phone: phone, 
+    //     techtrack: techtrack,
+    //     dob: new Date(),
+    //     github: github,
+    //     linkedIn: linkedIn,
+    //     imgurl: imgurl,
+    // }
     
+    // const profileUpdate =(e)=>{
+    //     e.preventDefault();
+
+    //     axios.put(updateUserEndpoint, updatedValues)
+    //         .then(response => {
+    //             console.log(response.data)
+    //         })
+    //     console.log("Form Submitted")
+    //     console.log(updatedValues)
+    // }
+
+    // useEffect(()=>{
+    //    const users = axios.get('https://cmd-backend.herokuapp.com/cmd/users')
+    //                         .then(response =>{
+    //                             console.log(response.data)
+    //                             let allUsers = response.data
+    //                             Object.keys(allUsers).forEach(function(key) {
+    //                                 const allUsersEmail = allUsers[key].email
+    //                                 console.log(allUsersEmail);
+    //                               })
+    //                         })
+    
+    // },[])
 
   return (
     <Formik
@@ -60,12 +105,8 @@ const SignUpForm = ( props ) => {
 
       onSubmit={(values) => {
         trackPromise(
-
             axios.put( updateUserEndpoint, values)
                 .then(response => {
-                    console.log(response.data)
-                    console.log(response)
-                    console.log(response.status)
                         localStorage.setItem('user', JSON.stringify(response.data));
                         console.log(localStorage.getItem('user'))
                         historyRoute.push('/ViewProfile')
@@ -173,4 +214,67 @@ const SignUpForm = ( props ) => {
   );
 };
 
+
+
+{/* <form  style={{ marginTop: '6rem' }} onSubmit={ profileUpdate }>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>First Name</label>
+      <input type="text" value={ fname } onInput={(e)=> setFname(e.target.value)} class="form-control" placeholder="John"/>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>Last Name</label>
+      <input type="text" value={ lname } onInput={(e)=> setLname(e.target.value)} class="form-control" placeholder="Doe"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>Email</label>
+      <input type="email" value={ email } onInput={(e)=> setEmail(e.target.value)} class="form-control" placeholder="John"/>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>Phone Number</label>
+      <input type="number" value={ phone } onInput={(e)=> setPhone(e.target.value)} class="form-control" placeholder="08012345678"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>Date of birth</label>
+      <input type="date" value={ dob } onInput={(e)=> setDob(e.target.value)} name="" id="" class="form-control"/>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>Image URL</label>
+      <input type="file" value={ imgurl } onInput={(e)=> setImgUrl(e.target.value)} class="form-control" placeholder="myprofilepic.jpg"/>
+    </div>
+  </div> 
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>Github Link</label>
+      <input type="text" value={ github } onInput={(e)=> setGithub(e.target.value)} class="form-control" placeholder="Johndoe/github"/>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>LinkedIn Link</label>
+      <input type="text" value={ linkedIn } onInput={(e)=> setLinkedIn(e.target.value)} class="form-control" placeholder="Doe"/>
+    </div>
+  </div>
+
+  <div class="row">
+    
+
+    <div class="form-group col-md-6">
+      <label>Tech Track</label>
+      <input type="text" value={ techtrack } onInput={(e)=> setTechTrack(e.target.value)} class="form-control" placeholder="Mobile Developer"/>
+    </div>
+  </div>
+  
+  <input className="btn btn-info" type="submit" value="Submit" />
+</form> */}
+  
 export default SignUpForm;
