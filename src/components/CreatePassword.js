@@ -45,9 +45,9 @@ const CreatePassword = ( props ) => {
                 <h2 style={{marginTop: '6rem'}}>Create Password Page</h2>
                 <form onSubmit = {passwordCreated}>
                     <div className="col-12" id="userReg">
-                        <label htmlFor="">Password</label>
+                        <label>Password</label>
                         <input className="form-control" value={ password } onChange={e =>setPassword(e.target.value)} placeholder="********" type="password"/>
-                        <label htmlFor="">Confirm Password</label>
+                        <label>Confirm Password</label>
                         <input className="form-control" value={ confirmPassword } onChange={e =>setconfirmPassword(e.target.value)} placeholder="********" type="password"/>
                         <input type="submit"  className="btn btn-block" id="createPasswordBtn" value="Create Password" />
                         <p style={{ color: "red" }} className="text-center">{ passWordCheck }</p>
