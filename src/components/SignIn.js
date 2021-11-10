@@ -16,11 +16,13 @@ const SignIn = () => {
     const [loginError, setLoginError] = useState("");
     const historyRoute = useHistory();
 
+    const isInvalid = password === "" || email === "";
+
 
     const handleLogin = e => {
         e.preventDefault();
 
-        const loginUserEmailEndpoint = 'users/loginByEmail/'+email
+        const loginUserEmailEndpoint = 'loginUserByEmail/'+email
 
         console.log(loginUserEmailEndpoint)
 
@@ -39,9 +41,6 @@ const SignIn = () => {
                     setLoginError("Incorrect email or password")
                 })
         );
-            
-       
-        
     }
 
     
@@ -71,7 +70,7 @@ const SignIn = () => {
                                     <input type="password" className="form-control"
                                     value={ password } onChange={e => setPassword(e.target.value)} placeholder="********" />
                                 </div>
-                                <button type="submit" className="btn btn-block" id="login_btn">Login</button>
+                                <button disabled={ isInvalid } type="submit" className={`btn btn-block ${isInvalid && 'opacity-50'}`} id="login_btn">Login</button>
                                 <div className="col-12 text-center" id="fgPass">
                                     <Link to="#" id="formLinks">Forgot Password</Link><br/>
                                 </div>

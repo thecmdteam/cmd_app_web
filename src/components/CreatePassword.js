@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
+import SignIn from './SignIn';
 
 const CreatePassword = ( props ) => {
     
     let userData = props.locaclStorageData;
     userData = JSON.parse(localStorage.getItem("user"))
     console.log(localStorage.getItem('user'))
-    const changePasswordEndPoint = 'users/setPassword/'+userData.id;
+    const changePasswordEndPoint = 'setUserPassword/'+userData.id;
     let regExpForPassword =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
 
     const [password, setPassword] = useState('')
@@ -22,7 +23,7 @@ const CreatePassword = ( props ) => {
         }else if(password !== confirmPassword){
             setpassWordCheck("The two fields didn't match")
         }else if(!password.match(regExpForPassword) && !confirmPassword.match(regExpForPassword)){
-            setpassWordCheck("Pls use a password between 8 to 15 characters which contain at least one"+
+            setpassWordCheck("Pls use a password between 8 to 15 characters which contain at least one "+
             "lowercase letter, one uppercase letter, one numeric digit, and one special character")
         }else{
 
@@ -36,6 +37,7 @@ const CreatePassword = ( props ) => {
         });
         }
 
+        <SignIn locaclStorageData={localStorage.getItem('user')}/>
         console.log(password)
         console.log(confirmPassword)
     }

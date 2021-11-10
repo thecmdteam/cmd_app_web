@@ -7,13 +7,11 @@ import Spinner from './Spinner'
 import Newcmd from '../assets/newcmd.png'
 
 const phoneRegex = /^\+?\d+$/
-const postUserEndpoint = 'https://cmd-backend.herokuapp.com/cmd/users';
+const postUserEndpoint = 'https://cmd-backend.herokuapp.com/cmd/createUser';
 
 const SignUpForm = () => {
-
     const [emailError, setEmailError] = useState("");
     const historyRoute = useHistory()
-
   return (
     <Formik
       initialValues={{
@@ -23,7 +21,6 @@ const SignUpForm = () => {
             phone: '', 
             techTrack:'' 
         }}
-
       validationSchema={Yup.object({
         fname: Yup.string()
           .max(15, 'Must be 15 characters or less')
@@ -39,7 +36,6 @@ const SignUpForm = () => {
           techTrack: Yup.string()
           .required("This field is required"),
       })}
-
       onSubmit={(values) => {
         trackPromise(
             fetch(postUserEndpoint, {
@@ -52,7 +48,6 @@ const SignUpForm = () => {
                     JSON.stringify(values)
             })
                 .then((res) => {
-                    console.log(res)
                     if(res.status === 500){
                         setEmailError("Email already exist")
                     }else{
@@ -60,9 +55,7 @@ const SignUpForm = () => {
                     }
                     res.json()
                         .then((data) => {
-                            console.log(data);
                             localStorage.setItem('user', JSON.stringify(data));
-                            console.log(localStorage.getItem('user'))
                         })}).catch((err) => {
                             console.log(err)
                         })

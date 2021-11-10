@@ -13,7 +13,7 @@ const ViewProfile = (props) => {
     userData = JSON.parse(localStorage.getItem("user"))
     console.log(userData.id)
 
-    const deleteUserAccountEndpoint = 'users/'+userData.id;
+    const deleteUserAccountEndpoint = 'deleteUser/'+userData.id;
     console.log(deleteUserAccountEndpoint)
 
     const deleteAccount = () =>{
@@ -80,15 +80,15 @@ const ViewProfile = (props) => {
                     </div>
                     <div className="row">
                         <div className="col-lg-6 col-sm-12">
-                            <span><FontAwesomeIcon className="mr-2 fa-2x" icon={ faMobileAlt }/>Mobile Number</span>
+                            <span><FontAwesomeIcon className="mr-2 fa-2x" icon={ faMobileAlt }/>Github Link</span>
                             <p className="mt-2 mb-4">
-                                <strong style={{ fontSize:"30px" }}>{ userData.phone }</strong>
+                                <strong style={{ fontSize:"30px" }}>{ userData.gitHubLink }</strong>
                             </p>
                         </div>
                         <div className="col-lg-6 col-sm-12">
-                            <span><FontAwesomeIcon className="mr-2 fa-2x" icon={ faMobileAlt }/>Mobile Number</span>
+                            <span><FontAwesomeIcon className="mr-2 fa-2x" icon={ faMobileAlt }/>LinkedIn Link</span>
                             <p className="mt-2 mb-4">
-                                <strong style={{ fontSize:"30px" }}>{ userData.phone }</strong>
+                                <strong style={{ fontSize:"30px" }}>{ userData.linkedInLink }</strong>
                             </p>
                         </div>
                     </div>
