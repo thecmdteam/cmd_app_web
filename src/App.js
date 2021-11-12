@@ -7,6 +7,7 @@ import Error from './pages/Error'
 import Form from './pages/Form';
 import SignIn from './components/SignIn';
 import OTPprompt from './components/OTPprompt';
+import OTPEmailUpdatePrompt from './components/OTPEmailUpdatePrompt';
 import CreatePassword from './components/CreatePassword';
 import ViewProfile from './components/ViewProfile';
 import UpdateProfile from './components/UpdateProfile';
@@ -26,6 +27,7 @@ function App() {
             <Route path="/SignIn" component={SignIn} />
             <Route path="/Form" component={Form} />
             <Route path="/OTPprompt" component={OTPprompt} />
+            <Route path="/OTPEmailUpdatePrompt" component={OTPEmailUpdatePrompt} />
             <Route path="/CreatePassword" component={CreatePassword} />
             <Route path="/ViewProfile" component={ViewProfile} />
             <Route path="/UpdateProfile" component={UpdateProfile} />
