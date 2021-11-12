@@ -7,6 +7,10 @@ import UpdateProfile from './UpdateProfile';
 
 const ViewProfile = (props) => {
 
+    // useEffect(() => {
+    //     axios.get()
+    // }, [])
+
     const historyRoute = useHistory();
 
     let userData = props.locaclStorageData;
