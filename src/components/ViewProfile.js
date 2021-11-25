@@ -31,6 +31,10 @@ const ViewProfile = (props) => {
         historyRoute.push('/UpdateProfile')
     }
 
+    const picUpdate = () =>{
+        console.log("update clicked")
+    }
+
     <UpdateProfile locaclStorageData={localStorage.getItem('user')}/>;
     
     return (
@@ -40,7 +44,12 @@ const ViewProfile = (props) => {
 
                 <div className="row">
                     <div className="col-lg-6 col-sm-12">
-                        <p><img src={ userData.imageUrl } alt="Users Profile Pic" className="mt-3 mb-3"/></p>
+                        <img src={ userData.imageUrl } alt="Users Profile Pic" className="mt-3 mb-3"/>
+
+                        <label for="avatar">Choose a Profile Picture:</label>
+                        <input type="file"
+                            id="avatar" name="avatar"
+                            accept="image/png, image/jpeg" onClick={picUpdate}/>
                     </div>
                     
                     <div className="col-lg-6 col-sm-12">
