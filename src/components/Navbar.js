@@ -9,6 +9,7 @@ const Navbar = () => {
 
     const signOut = () =>{
         localStorage.clear();
+        window.location.reload()
     }
 
         return (

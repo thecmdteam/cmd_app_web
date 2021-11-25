@@ -36,6 +36,7 @@ const SignIn = () => {
                     if(res.status === 200){
                         console.log("Loged In")
                         historyRoute.push("/")
+                        window.location.reload()
                     }
                     console.log(res.data)
                     let locaclStorageData = localStorage.setItem('user', JSON.stringify(res.data));

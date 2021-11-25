@@ -35,6 +35,7 @@ class Home extends React.Component{
     componentWillMount(){
         // window.location.reload(false)
     }
+    // window.location.reload()
     render(){
         return (
             <div>
