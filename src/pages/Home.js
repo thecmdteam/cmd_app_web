@@ -1,49 +1,123 @@
 import React, { useState, useEffect } from 'react'
 import BlogPosts from '../components/BlogPosts'
-import newcmd from '../assets/newcmd.png'
+import defaultimg from '../assets/default.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp, faThumbsDown, faComment, faShare, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 
 class Home extends React.Component{
-    // const [blogs] = useState([
-    //     {title: 'First Title', body:'First Post Description goes here', id:'1', image:{newcmd}},
-    //     {title: 'Second Title', body:'Second Post Description goes here', id:'2', image:{newcmd}},
-    //     {title: 'Third title', body:'Third Post Description goes here', id:'3', image:{newcmd}},
-    //     {title: 'Forth title', body:'Forth Post Description goes here', id:'4', image:{newcmd}},
-    //     {title: 'Forth title', body:'Forth Post Description goes here', id:'6', image:{newcmd}},
-    //     {title: 'Forth title', body:'Forth Post Description goes here', id:'5', image:{newcmd}}
-
-    // ])
-
-    // useEffect(() => {
-        // let userData = {
-        //     email: "",
-        //     fname: "",
-        //     id: "",
-        //     imageUrl: "",
-        //     isEmailVerified: false,
-        //     lname: "",
-        //     phone: "",
-        //     techTrack: "",
-        // }
-        // localStorage.setItem("user", JSON.stringify(userData))
-        // console.log(localStorage.getItem('user'))
-        // console.log(userData.email)
-        
-    // }, [])
-    // 
-    componentWillMount(){
-        // window.location.reload(false)
-    }
-    // window.location.reload()
     render(){
         return (
             <div>
-                <h2 style={{marginTop: '6rem'}}>Home Page</h2>
-                
-                {/* i passed in the blogs in here as a props */}
-                   {/* <BlogPosts blogs={blogs}/> */}
-                   {/* <h2>You are not loged in</h2> */}
+                <h2 style={{marginTop: '6rem'}}></h2>
+                <div className="container">
+                    <div className="row mb-5" style={{ maxWidth:"88%" }}>
+                        <div className="col-lg-6 col-md-12 col-sm-12">
+                            <img src={ defaultimg } alt="Blog Default image" style={{ width:"28rem" }}/>
+                        </div>
+                        <div className="col-lg-6 col-md-12 col-sm-12">
+                            <p><i style={{color:"#2c3e50"}}> Date:Wed 12 2021 Time:12:00:00</i></p>
+                            <h1>This is the blog title...</h1>
+                            <p>Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don’t need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt propt</p>
+                            <button id="homeReadMoreBtn">Read More</button>
+                            <hr/>
+                            <p id="homeActionsIcons">
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faThumbsUp}/>
+                                </div>
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faThumbsDown}/>
+                                </div>
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faComment}/>
+                                </div>
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faShareAlt}/>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+
+<hr/>
+                    <div className="row mt-5">
+                        <div className="col-lg-4 col-md-6 col-sm-12">
+                            <img src={ defaultimg } alt="Blog Default image" style={{ width:"18rem" }}/>
+
+                            <p><i style={{color:"#2c3e50"}}> Date:Wed 12 2021 Time:12:00:00</i></p>
+                            <h3>This is the blog title...</h3>
+                            <p>Redundant alt attribute. Screen-readers already announce `img` tag (or any specified custom words) in the alt propt</p>
+                            <button id="homeReadMoreBtn">Read More</button>
+                            <hr/>
+                            <p id="homeActionsIcons">
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faThumbsUp}/>
+                                </div>
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faThumbsDown}/>
+                                </div>
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faComment}/>
+                                </div>
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faShareAlt}/>
+                                </div>
+                            </p>
+                        </div>
+
+                        <div className="col-lg-4 col-md-6 col-sm-12">
+                            <img src={ defaultimg } alt="Blog Default image" style={{ width:"18rem" }}/>
+
+                            <p><i style={{color:"#2c3e50"}}> Date:Wed 12 2021 Time:12:00:00</i></p>
+                            <h3>This is the blog title...</h3>
+                            <p>Redundant alt attribute. Screen-readers already announce `img` tags as an image. (or any specified custom words) in the alt propt</p>
+                            <button id="homeReadMoreBtn">Read More</button>
+                            <hr/>
+                            <p id="homeActionsIcons">
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faThumbsUp}/>
+                                </div>
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faThumbsDown}/>
+                                </div>
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faComment}/>
+                                </div>
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faShareAlt}/>
+                                </div>
+                            </p>
+                        </div>
+
+                        <div className="col-lg-4 col-md-6 col-sm-12">
+                            <img src={ defaultimg } alt="Blog Default image" style={{ width:"18rem" }}/>
+
+                            <p><i style={{color:"#2c3e50"}}> Date:Wed 12 2021 Time:12:00:00</i></p>
+                            <h3>This is the blog title...</h3>
+                            <p>Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don’t need to use the words</p>
+                            <button id="homeReadMoreBtn">Read More</button>
+                            <hr/>
+                            <p id="homeActionsIcons">
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faThumbsUp}/>
+                                </div>
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faThumbsDown}/>
+                                </div>
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faComment}/>
+                                </div>
+                                <div id="ficon">
+                                <FontAwesomeIcon className="userIcon" icon={faShareAlt}/>
+                                </div>
+                            </p>
+                        </div>
+
+
+                        
+                    </div>
+                    
+                </div>
             </div>
         )
     }
