@@ -16,7 +16,9 @@ const Navbar = () => {
             <>
             <nav className="navbar navbar-expand-lg fixed-top">
                 <div className="container">
-                    <img src={newcmd} alt="TheCmdLogo"  style={{ width: '10rem'}}/>
+                    <Link className="navbar-brand" to="/" id="hover">
+                        <img src={newcmd} alt="TheCmdLogo"  style={{ width: '10rem'}}/>
+                    </Link>
                     <div className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <div id="menuBar">

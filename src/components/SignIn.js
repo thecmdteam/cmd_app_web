@@ -42,7 +42,7 @@ const SignIn = () => {
                     let locaclStorageData = localStorage.setItem('user', JSON.stringify(res.data));
                     <ViewProfile locaclStorageData={locaclStorageData}/>;
                 }).catch(err=>{
-                    setLoginError("Incorrect email or password")
+                    setLoginError("Incorrect email or password", err)
                 })
         );
     }
