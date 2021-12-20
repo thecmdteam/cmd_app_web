@@ -35,12 +35,12 @@ const OTPprompt = () => {
 
     <CreatePassword locaclStorageData={localStorage.getItem('user')}/>
 
-    if(localStorage.getItem('user') === null){
-        const viewProfile = document.getElementsByClassName('viewProfile')
+    // if(localStorage.getItem('user') === null){
+    //     const viewProfile = document.getElementsByClassName('viewProfile')
         // viewProfile.classList.add("btn disabled")
-    }else{
-        console.log("Loacal storage has an item")
-    }
+    // }else{
+    //     console.log("Loacal storage has an item")
+    // }
 
     return (
         <div className="container" id="OTPpromptParentContainer">

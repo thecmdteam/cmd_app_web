@@ -12,6 +12,7 @@
   --secondary-color: #f8c247;
   --font-color: #fff;
   --black-color: #000;
+  --grey-color: #808080;
 }
 
 nav{
@@ -287,8 +288,8 @@ form #login_btn:hover{
 
 #homeReadMoreBtn{
     background-color: var(--font-color);
-    border:2px solid var(--secondary-color); 
-    color:#2c3e50;
+    border: 2px solid var(--secondary-color); 
+    color: var(--primary-color);
     padding: 5px 15px;
 }
 
@@ -305,9 +306,92 @@ form #login_btn:hover{
 }
 
 #homeActionsIcons #ficon{
+    background-color: var(--font-color);
     color: var(--primary-color);
     padding: 0 10px;
     font-size: 1.4rem;
+}
+
+.writeStoryForm{
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.writeStoryForm input, #textarea{
+    border-radius: 0;
+}
+
+.writeStoryForm #textarea{
+    height: 12rem;
+}
+
+#writeStorySubmitBtn{
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--font-color);
+    padding: 5px 15px;
+}
+
+#ficon button{
+    background-color: var(--primary-color);;
+    font-size: 1.3rem;
+    border: none;
+    color: var(--secondary-color);
+}
+
+.ficon button{
+    background-color: var(--font-color);
+    font-size: 1.5rem;
+    border: none;
+    color: var(--primary-color);
+}
+
+.ficon button:hover{
+    background-color: var(--font-color);
+    font-size: 1.5rem;
+    border: none;
+    color: var(--secondary-color);
+}
+
+.cardContent{
+    background-color: var(--primary-color);
+    max-width: 18rem;
+    color: var(--font-color);
+    padding:5px 10px 0 10px;
+    border-radius: 0 0 7px 7px;
+    margin-top: 2px;
+}
+
+#cardReadMoreBtn{
+    background-color: var(--secondary-color);
+    border: none; 
+    color: var(--primary-color);
+    padding: 5px 10px;
+    font-size: 15px;
+    margin-left: 10rem;
+}
+
+#cardActionsIcons{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#cardActionsIcons #ficon{
+    color: var(--primary-color);
+    padding: 0 10px;
+    font-size: 1.4rem;
+}
+
+#horLine{
+    border-top: 1px solid var(--secondary-color) !important;
+}
+
+#cardHorLine{
+    margin-bottom: 1px !important;
+    border-top: 1px solid var(--secondary-color) !important;
 }
 
  @media(max-width:576px) {

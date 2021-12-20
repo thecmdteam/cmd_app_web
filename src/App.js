@@ -11,7 +11,7 @@ import OTPEmailUpdatePrompt from './components/OTPEmailUpdatePrompt';
 import CreatePassword from './components/CreatePassword';
 import ViewProfile from './components/ViewProfile';
 import UpdateProfile from './components/UpdateProfile';
-// import FormikContainer from './components/UpdateProfile';
+import WriteStory from './components/WriteStory';
 // import ProtectectedRoutes from './components/ProtectectedRoutes'
 
 function App() {
@@ -20,20 +20,21 @@ function App() {
       <div className="App">
         <Navbar />
       </div>
-        <div className="container">
-        <Switch>
-            <Route path="/" component={Home} exact />
-            <Route path="/About" component={About} />
-            <Route path="/SignIn" component={SignIn} />
-            <Route path="/Form" component={Form} />
-            <Route path="/OTPprompt" component={OTPprompt} />
-            <Route path="/OTPEmailUpdatePrompt" component={OTPEmailUpdatePrompt} />
-            <Route path="/CreatePassword" component={CreatePassword} />
-            <Route path="/ViewProfile" component={ViewProfile} />
-            <Route path="/UpdateProfile" component={UpdateProfile} />
-            <Route component={Error} />
-          </Switch>
-        </div>
+        {/* <div className="container"> */}
+          <Switch>
+              <Route path="/" component={Home} exact />
+              <Route path="/About" component={About} />
+              <Route path="/SignIn" component={SignIn} />
+              <Route path="/Form" component={Form} />
+              <Route path="/OTPprompt" component={OTPprompt} />
+              <Route path="/OTPEmailUpdatePrompt" component={OTPEmailUpdatePrompt} />
+              <Route path="/CreatePassword" component={CreatePassword} />
+              <Route path="/UpdateProfile" component={UpdateProfile} />
+              <Route path="/WriteStory" component={WriteStory} />
+              <Route path="/ViewProfile" component={ViewProfile} />
+              <Route component={Error} />
+            </Switch>
+        {/* </div> */}
       
     </Router>
     

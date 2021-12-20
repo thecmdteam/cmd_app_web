@@ -5,9 +5,9 @@
     import Spinner from './Spinner'
     import axios from 'axios'
     
-    const phoneRegex = /^\+?\d+$/
+    // const phoneRegex = /^\+?\d+$/
     
-    const SignUpForm = ( props ) => {
+    const UpdateProfile = ( props ) => {
     
         let userData = props.locaclStorageData;
         userData = JSON.parse(localStorage.getItem("user"))
@@ -52,7 +52,7 @@
                         localStorage.setItem('user', JSON.stringify(res.data))
                         historyRoute.push('/OTPEmailUpdatePrompt')
                     }
-                        }).catch(err => setEmailError("Email already exist"))
+                        }).catch( err => setEmailError("Email already exist"))
                     )
                         e.preventDefault()
                     }
@@ -123,4 +123,4 @@
       );
     };
       
-    export default SignUpForm;
+    export default UpdateProfile;

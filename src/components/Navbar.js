@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import newcmd from '../assets/newcmd.png';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUserCircle, faSignInAlt, faDoorOpen, faEye } from '@fortawesome/free-solid-svg-icons';
-// import { useHistory } from 'react-router-dom'
+import { faBars, faUserCircle, faSignInAlt, faDoorOpen, faEye, faPenAlt } from '@fortawesome/free-solid-svg-icons';
+import { useHistory } from 'react-router-dom'
 
 const Navbar = () => {
+    const historyRoute = useHistory();
 
     const signOut = () =>{
-        localStorage.clear();
+        localStorage.removeItem('user');
+        historyRoute.push('/')
         window.location.reload()
     }
 
@@ -40,6 +42,9 @@ const Navbar = () => {
                                 <Link to="/ViewProfile" className="dropdown-item" style={localStorage.getItem('user') ? {display:'block'}:{display:'none'}}>
                                     <FontAwesomeIcon className="mr-2 fa-1x" icon={ faEye }/>View Profile
                                 </Link>
+                                <Link to="/WriteStory" className="dropdown-item" style={localStorage.getItem('user') ? {display:'block'}:{display:'none'}}>
+                                    <FontAwesomeIcon className="mr-2 fa-1x" icon={ faPenAlt }/>Write A Story
+                                </Link>
                                 <div className="dropdown-divider"></div>
                                 <Link to="/SignIn"className="dropdown-item" style={localStorage.getItem('user') ? {display:'none'}:{display:'block'}}>
                                     <FontAwesomeIcon className="mr-2 fa-1x" icon={ faSignInAlt }/>Sign In
@@ -47,7 +52,6 @@ const Navbar = () => {
                                 <Link to="/"className="dropdown-item" onClick={signOut} style={localStorage.getItem('user') ? {display:'block'}:{display:'none'}}>
                                     <FontAwesomeIcon className="mr-2 fa-1x" icon={ faDoorOpen }/>Sign Out
                                 </Link>
-                                {/* <a className="dropdown-item" href="#">Something else here</a> */}
                                 </div>
                             </li>
                         </ul>

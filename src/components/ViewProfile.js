@@ -1,24 +1,25 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faUser, faEdit, faAngleLeft, faTrash, faMobileAlt, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faUser, faEdit, faAngleLeft, faTrash, faMobileAlt, faLaptopCode} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import UpdateProfile from './UpdateProfile';
+import store from 'store'
+import '../assets/style.css'
 
 const ViewProfile = (props) => {
-
-    // useEffect(() => {
-    //     axios.get()
-    // }, [])
-
-    const historyRoute = useHistory();
-
     let userData = props.locaclStorageData;
     userData = JSON.parse(localStorage.getItem("user"))
-    console.log(userData.id)
 
-    const deleteUserAccountEndpoint = 'deleteUser/'+userData.id;
-    console.log(deleteUserAccountEndpoint)
+    const { fname, lname, email, gitHubLink, linkedInLink, techTrack, phone, imageUrl, id } = userData;
+    const historyRoute = useHistory();
+    
+    store.set('profilePic', imageUrl)
+    const value = store.get("profilePic")
+    console.log("Store item is ",value)
+    
+
+    const deleteUserAccountEndpoint = 'deleteUser/'+id;
 
     const deleteAccount = () =>{
         axios.delete(deleteUserAccountEndpoint)
@@ -31,25 +32,70 @@ const ViewProfile = (props) => {
         historyRoute.push('/UpdateProfile')
     }
 
-    const picUpdate = () =>{
-        console.log("update clicked")
+    // const deleteProfilePicEndpoint = 'https://cmd-fileservice.herokuapp.com/file/remove/6164731c4b6ed22a8e66f19b';
+
+    // const deleteImage = async () =>{
+
+    //     try{
+    //         const res = await fetch(deleteProfilePicEndpoint, { method: 'DELETE', })
+    //         console.log(res.status)
+    //         const data = await res.text();
+    //         console.log(data)
+
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
+
+    const onFileChange = async (event) =>{
+
+        const fileDetails = event.target.files[0]
+        const formData = new FormData();
+        formData.append('file', fileDetails);
+
+        try{
+            const response = await fetch('https://cmd-fileservice.herokuapp.com/file/upload', {
+            method: "POST", 
+            body: formData,
+            })
+            const data = await response.text();
+            updateProfile(data)
+        } catch (err) {
+            console.log(err)
+        }
     }
+
+    const updateProfile =  (data) => {
+
+        const imageUrl = store.set('profilePic', `https://cmd-fileservice.herokuapp.com/file/download/${data}`)
+
+        axios.put(`https://cmd-backend.herokuapp.com/cmd/updateUser/${id}`, {
+            id,fname,lname,gitHubLink,email,linkedInLink,phone,imageUrl
+        }).then(res => {
+            let user = res.data
+            localStorage.setItem('user',JSON.stringify(user))
+            window.location.reload()
+        })
+
+        console.log(userData)
+    }
+
+    
 
     <UpdateProfile locaclStorageData={localStorage.getItem('user')}/>;
     
     return (
         <div>
-            <h2 style={{marginTop: '6rem'}}><strong>Profile</strong></h2>
+
+<h2 style={{marginTop: '6rem'}}><strong>Profile</strong></h2>
             <div className="container" id="viewProfile">
 
                 <div className="row">
                     <div className="col-lg-6 col-sm-12">
-                        <img src={ userData.imageUrl } alt="Users Profile Pic" className="mt-3 mb-3"/>
+                        <img src={ imageUrl } alt="Users Profile Pic" className="mt-3 mb-3"/>
 
-                        <label for="avatar">Choose a Profile Picture:</label>
-                        <input type="file"
-                            id="avatar" name="avatar"
-                            accept="image/png, image/jpeg" onClick={picUpdate}/>
+                        <label htmlFor="avatar">Choose a Profile Picture:</label>
+                        <input type="file" id="avatar" name="avatar" onChange={onFileChange}/>
                     </div>
                     
                     <div className="col-lg-6 col-sm-12">
@@ -78,7 +124,7 @@ const ViewProfile = (props) => {
 
                         <span><FontAwesomeIcon className="mr-2 fa-2x" icon={ faLaptopCode }/>Tech Track</span>
                         <p className="mt-2 mb-4">
-                            <strong style={{ fontSize:"30px" }}>{ userData.techTrack }</strong>
+                            <strong style={{ fontSize:"30px" }}>{ techTrack }</strong>
                         </p>
                     </div>
                 </div>
@@ -106,7 +152,6 @@ const ViewProfile = (props) => {
                         </div>
                     </div>
                 
-
                 <div id="updateDelBack">
                     <div className="btn btn-secondary">
                         <FontAwesomeIcon className="mr-2 fa-1x" icon={ faAngleLeft }/>Back
@@ -119,7 +164,7 @@ const ViewProfile = (props) => {
                     </div>
                 </div> 
             </div>
-        </div>
+        </div>   
     )
 }
 
