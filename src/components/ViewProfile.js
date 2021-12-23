@@ -5,7 +5,6 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import UpdateProfile from './UpdateProfile';
 import store from 'store'
-import '../assets/style.css'
 
 const ViewProfile = (props) => {
     let userData = props.locaclStorageData;

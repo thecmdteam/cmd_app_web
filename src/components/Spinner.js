@@ -15,7 +15,7 @@ const { promiseInProgress } = usePromiseTracker({area: props.area});
         type="TailSpin"
         color="#f8c247"
         height={40}
-        width={40}
+        width={42}
         timeout={999000} //999 secs
         />
       :
