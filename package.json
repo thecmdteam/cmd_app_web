@@ -2,6 +2,10 @@
   "name": "newapp",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.13.0",
+    "npm": "8.1.0"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -34,10 +38,7 @@
     "web-vitals": "^1.1.2",
     "yup": "^0.32.11",
   },
-  "engines": {
-    "node": "16.13.0",
-    "npm": "8.1.0"
-  },
+  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
