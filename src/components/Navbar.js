@@ -2,11 +2,15 @@ import React from 'react';
 import newcmd from '../assets/newcmd.png';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUserCircle, faSignInAlt, faDoorOpen, faEye, faPenAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSignInAlt, faDoorOpen, faUserCircle, faEye, faPenAlt, faHome, faBell, faSearch, faPlusSquare, faClone } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom'
+import ViewProfile from './ViewProfile';
 
-const Navbar = () => {
+const Navbar = (props) => {
     const historyRoute = useHistory();
+
+    let userData = props.locaclStorageData;
+    userData = JSON.parse(localStorage.getItem("user"))
 
     const signOut = () =>{
         localStorage.removeItem('user');
@@ -14,12 +18,14 @@ const Navbar = () => {
         window.location.reload()
     }
 
+    <ViewProfile locaclStorageData={localStorage.getItem('user')}/>;
+
         return (
             <>
             <nav className="navbar navbar-expand-lg fixed-top">
                 <div className="container">
                     <Link className="navbar-brand" to="/" id="hover">
-                        <img src={newcmd} alt="TheCmdLogo"  style={{ width: '10rem'}}/>
+                        <img src={newcmd} alt="TheCmdLogo" className='mr-5'  style={{ width: '10rem'}}/>
                     </Link>
                     <div className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,14 +35,42 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav ml-auto">
-                            <Link className="nav-link active" to="/" id="hover">Home</Link>
-                            <Link className="nav-link" to="/About">About</Link>
+                        <ul className="navbar-nav mr-auto mt-2">
+                            <Link className="nav-link active" to="/" id="hover">
+                                <FontAwesomeIcon className="mr-2 fa-2x" id='navIcons navs' icon={ faHome }/>
+                                {/* <div className='hide'>Home</div> */}
+                            </Link>
+
+                            <Link className="nav-link active" to="/" id="hover">
+                                <FontAwesomeIcon className="mr-2 fa-2x" id='navIcons' icon={ faClone }/>
+                            </Link>
+
+                            <Link className="nav-link active" to="/" id="hover">
+                                <FontAwesomeIcon className="mr-2 fa-2x" id='navIcons' icon={ faPlusSquare }/>
+                            </Link>
+
+                            <Link className="nav-link active" to="/" id="hover">
+                                <FontAwesomeIcon className="mr-2 fa-2x" id='navIcons' icon={ faBell }/>
+                            </Link>
+
+                            
+
+                            <Link className="nav-link active" id="hover">
+                                {/* <li className="wrap"> */}
+                                    <div className="search">
+                                        <input type="text" className="searchTerm" placeholder="Search theCmd"/>
+                                        <button type="submit" className="searchButton">
+                                            <FontAwesomeIcon icon={faSearch}/>
+                                        </button>
+                                    </div>
+                                {/* </li> */}
+                            </Link>
+                            
 
                             <li className="nav-item dropdown">
                                 <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" 
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <FontAwesomeIcon className="userIcon" icon={faUserCircle}/>
+                                    { userData ? (<img src={userData.imageUrl} id='navIcons' alt="" className='navImg'/>): (<FontAwesomeIcon style={{ height:'30px', width:'30px', borderRadius:'50%' }} className="userIcon mx-2" icon={faUserCircle}/>)}
                                 </Link>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <Link to="/ViewProfile" className="dropdown-item" style={localStorage.getItem('user') ? {display:'block'}:{display:'none'}}>
@@ -54,6 +88,12 @@ const Navbar = () => {
                                 </Link>
                                 </div>
                             </li>
+                            <Link className="navbar-brand mt-1" to="/" id="hover">
+                                <p style={{ color:'white',textTransform:'capitalize' }}>Following</p>
+                            </Link>
+                            <Link className="navbar-brand mt-1" to="/" id="hover">
+                                <p style={{ color:'white',textTransform:'capitalize' }}>For you</p>
+                            </Link>
                         </ul>
                     </div>
                 </div> 
