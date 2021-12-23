@@ -11,7 +11,7 @@ import OTPEmailUpdatePrompt from './components/OTPEmailUpdatePrompt';
 import CreatePassword from './components/CreatePassword';
 import ViewProfile from './components/ViewProfile';
 import UpdateProfile from './components/UpdateProfile';
-import WriteStory from './components/WriteStory';
+// import WriteStory from './components/WriteStory';
 // import ProtectectedRoutes from './components/ProtectectedRoutes'
 
 function App() {
