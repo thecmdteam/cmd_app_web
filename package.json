@@ -32,7 +32,10 @@
     "state-pool": "^0.6.0",
     "store": "^2.0.12",
     "web-vitals": "^1.1.2",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "engines": {
+      "node": "16.13.0"
+    }
   },
   "scripts": {
     "start": "react-scripts start",
