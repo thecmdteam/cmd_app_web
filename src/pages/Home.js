@@ -1,312 +1,187 @@
 import React from 'react'
-import defaultimg from '../assets/default.jpg'
+import codeImg from '../assets/codeImg.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown, faComment, faShareAlt, faCalendarDay} from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faEllipsisV, faShareAlt, faHeart, faCommentAlt, faBookmark} from '@fortawesome/free-solid-svg-icons';
+import ViewProfile from '../components/ViewProfile';
+import { Link } from 'react-router-dom';
 
 
 
-const Home = () =>{
+
+
+const Home = (props) =>{
+
+    <ViewProfile locaclStorageData={localStorage.getItem('user')}/>;
+
+    let userData = props.locaclStorageData;
+    userData = JSON.parse(localStorage.getItem("user"))
+    if(userData){
+        console.log("User in")
+    }else{
+        console.log("No user in")
+
+    }
+
+    // if(userData){
+    //     const { fname, lname, email, gitHubLink, linkedInLink, techTrack, phone, imageUrl, id } = userData;
+    // }else{
+    //     userData=""
+    // }
+
+    
+
         return (
             <div>
-                <h2 style={{marginTop: '6rem'}}>Blog Posts</h2>
+                <h2 style={{marginTop: '6rem'}}></h2>
                 <div className="container">
-                    <div className="row mb-5" style={{ maxWidth:"88%" }}>
-                        <div className="col-lg-6 col-md-12 col-sm-12">
-                            <img src={ defaultimg } alt="Blog Default Profile Pic" style={{ width:"28rem" }}/>
-                        </div>
-                        <div className="col-lg-6 col-md-12 col-sm-12">
-                        <p>
-                            <FontAwesomeIcon className="userIcon mx-2" icon={faCalendarDay}/>
-                            <em>: Wed 12 2021 </em>{/* <FontAwesomeIcon className="userIcon mx-2" icon={faClock}/>: 12:00:00 */}
-                        </p>
-                            <h1>This is the blog title...</h1>
-                            <p>Redundant alt attribute. Screen-readers already announce `img` tags as an Profile Pic.. You don't need to use the words `Profile Pic.`, `photo,` or `picture`</p>
-                            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
-                                <button id="homeReadMoreBtn">Read More</button>
-                                <p><em> Post by -- Ebube Boss</em></p>
-                            </div>
-                            
-                            <hr/>
-                            <p id="homeActionsIcons">
-                                <div className="ficon">
-                                    <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Like">
-                                        <FontAwesomeIcon className="userIcon" icon={faThumbsUp}/>
-                                    </button>
-                                </div>
-                                <div className="ficon">
-                                    <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Dislike">
-                                        <FontAwesomeIcon className="userIcon" icon={faThumbsDown}/>
-                                    </button>
-                                </div>
-                                <div className="ficon">
-                                    <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Comment">
-                                        <FontAwesomeIcon className="userIcon" icon={faComment}/>
-                                    </button>
-                                </div>
-                                <div className="ficon">
-                                    <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Share">
-                                        <FontAwesomeIcon className="userIcon" icon={faShareAlt}/>
-                                    </button>
-                                </div>
-                            </p>
-                        </div>
-                    </div>
 
-                    <hr id='horLine'/>
-
-                    <div className="row mt-5">
-                        <div className="col-lg-4 col-md-6 col-sm-12">
-                            <img src={ defaultimg } alt="Blog Default Profile Pic." style={{ width:"18rem", borderRadius:'7px 7px 0 0' }}/>
-                            <div className="cardContent">
-                                <p>
-                                    <FontAwesomeIcon className="userIcon mx-2" icon={faCalendarDay}/>
-                                    <em>: Wed 12 2021 </em>
-                                        {/* <FontAwesomeIcon className="userIcon mx-2" icon={faClock}/>: 12:00:00 */}
-                                </p>
-                                
-                                <h3>This is the blog title...</h3>
-                                <p>Redundant alt attribute. Screen-readers already announce `img` tag (or any specified custom words) in the alt propt</p>
-                                <p><em> Post by -- Ebube Boss</em></p>
-                                <button id="cardReadMoreBtn">Read More</button>
-                                
-                                <hr id='cardHorLine'/>
-                                <p id="cardActionsIcons">
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Like">
-                                            <FontAwesomeIcon className="userIcon" icon={faThumbsUp}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Dislike">
-                                            <FontAwesomeIcon className="userIcon" icon={faThumbsDown}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Comment">
-                                            <FontAwesomeIcon className="userIcon" icon={faComment}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Share">
-                                            <FontAwesomeIcon className="userIcon" icon={faShareAlt}/>
-                                        </button>
-                                    </div>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-4 col-md-6 col-sm-12">
-                            <img src={ defaultimg } alt="Blog Default Profile Pic." style={{ width:"18rem", borderRadius:'7px 7px 0 0' }}/>
-                            <div className="cardContent">
-                                <p>
-                                    <FontAwesomeIcon className="userIcon mx-2" icon={faCalendarDay}/>
-                                    <em>: Wed 12 2021 </em>
-                                        {/* <FontAwesomeIcon className="userIcon mx-2" icon={faClock}/>: 12:00:00 */}
-                                </p>
-                                
-                                <h3>This is the blog title...</h3>
-                                <p>Redundant alt attribute. Screen-readers already announce `img` tag (or any specified custom words) in the alt propt</p>
-                                <p><em> Post by -- Ebube Boss</em></p>
-                                <button id="cardReadMoreBtn">Read More</button>
-                                
-                                <hr id='cardHorLine'/>
-                                <p id="cardActionsIcons">
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Like">
-                                            <FontAwesomeIcon className="userIcon" icon={faThumbsUp}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Dislike">
-                                            <FontAwesomeIcon className="userIcon" icon={faThumbsDown}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Comment">
-                                            <FontAwesomeIcon className="userIcon" icon={faComment}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Share">
-                                            <FontAwesomeIcon className="userIcon" icon={faShareAlt}/>
-                                        </button>
-                                    </div>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-4 col-md-6 col-sm-12">
-                            <img src={ defaultimg } alt="Blog Default Profile Pic." style={{ width:"18rem", borderRadius:'7px 7px 0 0' }}/>
-                            <div className="cardContent">
-                                <p>
-                                    <FontAwesomeIcon className="userIcon mx-2" icon={faCalendarDay}/>
-                                    <em>: Wed 12 2021 </em>
-                                        {/* <FontAwesomeIcon className="userIcon mx-2" icon={faClock}/>: 12:00:00 */}
-                                </p>
-                                
-                                <h3>This is the blog title...</h3>
-                                <p>Redundant alt attribute. Screen-readers already announce `img` tag (or any specified custom words) in the alt propt</p>
-                                <p><em> Post by -- Ebube Boss</em></p>
-                                <button id="cardReadMoreBtn">Read More</button>
-                                
-                                <hr id='cardHorLine'/>
-                                <p id="cardActionsIcons">
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Like">
-                                            <FontAwesomeIcon className="userIcon" icon={faThumbsUp}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Dislike">
-                                            <FontAwesomeIcon className="userIcon" icon={faThumbsDown}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Comment">
-                                            <FontAwesomeIcon className="userIcon" icon={faComment}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Share">
-                                            <FontAwesomeIcon className="userIcon" icon={faShareAlt}/>
-                                        </button>
-                                    </div>
-                                </p>
-                            </div>
-                        </div>
-
-
-                        
-                    </div>
-
-
-                    <div className="row mt-5">
-                        <div className="col-lg-4 col-md-6 col-sm-12">
-                            <img src={ defaultimg } alt="Blog Default Profile Pic." style={{ width:"18rem", borderRadius:'7px 7px 0 0' }}/>
-                            <div className="cardContent">
-                                <p>
-                                    <FontAwesomeIcon className="userIcon mx-2" icon={faCalendarDay}/>
-                                    <em>: Wed 12 2021 </em>
-                                        {/* <FontAwesomeIcon className="userIcon mx-2" icon={faClock}/>: 12:00:00 */}
-                                </p>
-                                
-                                <h3>This is the blog title...</h3>
-                                <p>Redundant alt attribute. Screen-readers already announce `img` tag (or any specified custom words) in the alt propt</p>
-                                <p><em> Post by -- Ebube Boss</em></p>
-                                <button id="cardReadMoreBtn">Read More</button>
-                                
-                                <hr id='cardHorLine'/>
-                                <p id="cardActionsIcons">
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Like">
-                                            <FontAwesomeIcon className="userIcon" icon={faThumbsUp}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Dislike">
-                                            <FontAwesomeIcon className="userIcon" icon={faThumbsDown}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Comment">
-                                            <FontAwesomeIcon className="userIcon" icon={faComment}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Share">
-                                            <FontAwesomeIcon className="userIcon" icon={faShareAlt}/>
-                                        </button>
-                                    </div>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-4 col-md-6 col-sm-12">
-                            <img src={ defaultimg } alt="Blog Default Profile Pic." style={{ width:"18rem", borderRadius:'7px 7px 0 0' }}/>
-                            <div className="cardContent">
-                                <p>
-                                    <FontAwesomeIcon className="userIcon mx-2" icon={faCalendarDay}/>
-                                    <em>: Wed 12 2021 </em>
-                                        {/* <FontAwesomeIcon className="userIcon mx-2" icon={faClock}/>: 12:00:00 */}
-                                </p>
-                                
-                                <h3>This is the blog title...</h3>
-                                <p>Redundant alt attribute. Screen-readers already announce `img` tag (or any specified custom words) in the alt propt</p>
-                                <p><em> Post by -- Ebube Boss</em></p>
-                                <button id="cardReadMoreBtn">Read More</button>
-                                
-                                <hr id='cardHorLine'/>
-                                <p id="cardActionsIcons">
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Like">
-                                            <FontAwesomeIcon className="userIcon" icon={faThumbsUp}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Dislike">
-                                            <FontAwesomeIcon className="userIcon" icon={faThumbsDown}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Comment">
-                                            <FontAwesomeIcon className="userIcon" icon={faComment}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Share">
-                                            <FontAwesomeIcon className="userIcon" icon={faShareAlt}/>
-                                        </button>
-                                    </div>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-4 col-md-6 col-sm-12">
-                            <img src={ defaultimg } alt="Blog Default Profile Pic." style={{ width:"18rem", borderRadius:'7px 7px 0 0' }}/>
-                            <div className="cardContent">
-                                <p>
-                                    <FontAwesomeIcon className="userIcon mx-2" icon={faCalendarDay}/>
-                                    <em>: Wed 12 2021 </em>
-                                        {/* <FontAwesomeIcon className="userIcon mx-2" icon={faClock}/>: 12:00:00 */}
-                                </p>
-                                
-                                <h3>This is the blog title...</h3>
-                                <p>Redundant alt attribute. Screen-readers already announce `img` tag (or any specified custom words) in the alt propt</p>
-                                <p><em> Post by -- Ebube Boss</em></p>
-                                <button id="cardReadMoreBtn">Read More</button>
-                                
-                                <hr id='cardHorLine'/>
-                                <p id="cardActionsIcons">
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Like">
-                                            <FontAwesomeIcon className="userIcon" icon={faThumbsUp}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Dislike">
-                                            <FontAwesomeIcon className="userIcon" icon={faThumbsDown}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Comment">
-                                            <FontAwesomeIcon className="userIcon" icon={faComment}/>
-                                        </button>
-                                    </div>
-                                    <div id="ficon">
-                                        <button className='toolTip' type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Share">
-                                            <FontAwesomeIcon className="userIcon" icon={faShareAlt}/>
-                                        </button>
-                                    </div>
-                                </p>
-                            </div>
-                        </div>
-
-
-                        
-                    </div>
+                <div class="alert alert-white alert-dismissible fade show" style={{ boxShadow:'2px 2px 5px gray' }} role="alert">
+                    { userData ? (<img alt='' src={ userData.imageUrl } style={{ height:'50px', width:'50px', borderRadius:'50%' }}/>): (<FontAwesomeIcon style={{ height:'50px', width:'50px', borderRadius:'50%' }} className="userIcon mx-2" icon={faUserCircle}/>) }
+                    { userData ? (<span style={{ marginLeft:'1rem', fontSize:'20px', fontWeight:'bold'}}>{ userData.fname } { userData.lname }</span>): <span style={{ marginLeft:'1rem', fontSize:'20px', fontWeight:'bold'}}>Don't have an account?</span>}
+                    { userData ? (<h3 className='mt-2' style={{fontWeight:'bold'}}>What do you want to ask or share?</h3>) : (<h4 className='mt-2' style={{fontWeight:'bold'}}><Link to="/Form" id="formLinks">Sign Up</Link> for an account today or <Link to="/SignIn" id="formLinks">Sign In</Link></h4>)}
                     
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            </div>
+
+
+                        <div className="col-12 mt-5 pb-3" style={{ boxShadow:'2px 2px 4px #808080', paddingTop:'2rem', borderRadius:'5px' }}>
+                            <div className="cardHeader" style={{display:'flex', justifyContent:'space-between'}}>
+                                <div className="userInfo" style={{display:"flex"}}>
+                                    <FontAwesomeIcon className='ml-5' style={{ height:'35px', width:'35px', borderRadius:'50%' }} icon={faUserCircle}/>
+                                    <div>
+                                        <div style={{ display:'flex', fontWeight:'bold' }}>
+                                            <h5 className='px-3 pt-2'>Ebube Boss</h5>
+                                            <Link className="navbar-brand pt-1" to="/">
+                                                <span style={{ color:'#f8c247', textTransform:'capitalize' }}>.Follow</span>
+                                            </Link>
+                                        </div>
+                                        <div>
+                                            <span className=' pl-3'>2 Hours Ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="userOptions" >
+                                    <FontAwesomeIcon icon={faEllipsisV} style={{ height:'20px', width:'20px'}} className='mt-2 mr-5'/>
+                                </div>
+                            </div>
+
+                            <div className="cardContent ml-5">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente obcaecati fugit perspiciatis! Exercitationem 
+                                voluptatem officiis eius accusamus, quas temporibus iure tempore ad... <span style={{color:'grey'}}>Read More</span> </p>
+                            </div>
+
+                            <div style={{backgroundColor: '#091325', width:'100%'}}>
+                                <div className="cardImage" >
+                                    <img src={codeImg} alt="" style={{marginLeft:'auto', marginRight:'auto', display:'block'}}/>
+                                </div>
+                            </div>
+
+                            <div className="cardFooter mt-3" style={{display:'flex', justifyContent:'space-between'}}>
+                                <div className="userActions" style={{display:"flex"}}>
+                                    <FontAwesomeIcon className='ml-5' style={{ height:'20px', width:'20px' }} icon={faHeart}/> <span className='pl-2'>500</span><br/>
+                                    <FontAwesomeIcon className='ml-5' style={{ height:'20px', width:'20px' }} icon={faCommentAlt}/> <span className='pl-2'>50</span>
+                                    <FontAwesomeIcon className='ml-5' style={{ height:'20px', width:'20px' }} icon={faShareAlt}/>
+                                </div>
+                                <div className="userOptions">
+                                    <FontAwesomeIcon icon={faBookmark} style={{ height:'20px', width:'20px'}} className='mr-5'/>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div className="col-12 mt-5 pb-3" style={{ boxShadow:'2px 2px 4px #808080', paddingTop:'2rem', borderRadius:'5px' }}>
+                            <div className="cardHeader" style={{display:'flex', justifyContent:'space-between'}}>
+                                <div className="userInfo" style={{display:"flex"}}>
+                                    <FontAwesomeIcon className='ml-5' style={{ height:'35px', width:'35px', borderRadius:'50%' }} icon={faUserCircle}/>
+                                    <div>
+                                        <div style={{ display:'flex', fontWeight:'bold' }}>
+                                            <h5 className='px-3 pt-2'>Ebube Boss</h5>
+                                            <Link className="navbar-brand pt-1" to="/">
+                                                <span style={{ color:'#f8c247', textTransform:'capitalize' }}>.Follow</span>
+                                            </Link>
+                                        </div>
+                                        <div>
+                                            <span className=' pl-3'>2 Hours Ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="userOptions" >
+                                    <FontAwesomeIcon icon={faEllipsisV} style={{ height:'20px', width:'20px'}} className='mt-2 mr-5'/>
+                                </div>
+                            </div>
+
+                            <div className="cardContent ml-5">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente obcaecati fugit perspiciatis! Exercitationem 
+                                voluptatem officiis eius accusamus, quas temporibus iure tempore ad corporis perspiciatis nisi minus autem blanditiis omnis earum.</p>
+                            </div>
+
+                            <div style={{backgroundColor: '#091325', width:'100%'}}>
+                                <div className="cardImage" >
+                                    <img src={codeImg} alt="" style={{marginLeft:'auto', marginRight:'auto', display:'block'}}/>
+                                </div>
+                            </div>
+
+                            <div className="cardFooter mt-3" style={{display:'flex', justifyContent:'space-between'}}>
+                                <div className="userActions" style={{display:"flex"}}>
+                                    <FontAwesomeIcon className='ml-5' style={{ height:'20px', width:'20px' }} icon={faHeart}/> <span className='pl-2'>500</span>
+                                    <FontAwesomeIcon className='ml-5' style={{ height:'20px', width:'20px' }} icon={faCommentAlt}/> <span className='pl-2'>50</span>
+                                    <FontAwesomeIcon className='ml-5' style={{ height:'20px', width:'20px' }} icon={faShareAlt}/>
+                                </div>
+                                <div className="userOptions">
+                                    <FontAwesomeIcon icon={faBookmark} style={{ height:'20px', width:'20px'}} className='mr-5'/>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div className="col-12 mt-5 pb-3" style={{ boxShadow:'2px 2px 4px #808080', paddingTop:'2rem', borderRadius:'5px' }}>
+                            <div className="cardHeader" style={{display:'flex', justifyContent:'space-between'}}>
+                                <div className="userInfo" style={{display:"flex"}}>
+                                    <FontAwesomeIcon className='ml-5' style={{ height:'35px', width:'35px', borderRadius:'50%' }} icon={faUserCircle}/>
+                                    <div>
+                                        <div style={{ display:'flex', fontWeight:'bold' }}>
+                                            <h5 className='px-3 pt-2'>Ebube Boss</h5>
+                                            <Link className="navbar-brand pt-1" to="/">
+                                                <span style={{ color:'#f8c247', textTransform:'capitalize' }}>.Follow</span>
+                                            </Link>
+                                        </div>
+                                        <div>
+                                            <span className=' pl-3'>2 Hours Ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="userOptions" >
+                                    <FontAwesomeIcon icon={faEllipsisV} style={{ height:'20px', width:'20px'}} className='mt-2 mr-5'/>
+                                </div>
+                            </div>
+
+                            <div className="cardContent ml-5">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente obcaecati fugit perspiciatis! Exercitationem 
+                                voluptatem officiis eius accusamus, quas temporibus iure tempore ad corporis perspiciatis nisi minus autem blanditiis omnis earum.</p>
+                            </div>
+
+                            <div style={{backgroundColor: '#091325', width:'100%'}}>
+                                <div className="cardImage" >
+                                    <img src={codeImg} alt="" style={{marginLeft:'auto', marginRight:'auto', display:'block'}}/>
+                                </div>
+                            </div>
+
+                            <div className="cardFooter mt-3" style={{display:'flex', justifyContent:'space-between'}}>
+                                <div className="userActions" style={{display:"flex"}}>
+                                    <FontAwesomeIcon className='ml-5' style={{ height:'20px', width:'20px' }} icon={faHeart}/> <span className='pl-2'>500</span>
+                                    <FontAwesomeIcon className='ml-5' style={{ height:'20px', width:'20px' }} icon={faCommentAlt}/> <span className='pl-2'>50</span>
+                                    <FontAwesomeIcon className='ml-5' style={{ height:'20px', width:'20px' }} icon={faShareAlt}/>
+                                </div>
+                                <div className="userOptions">
+                                    <FontAwesomeIcon icon={faBookmark} style={{ height:'20px', width:'20px'}} className='mr-5'/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
         )
 }
 

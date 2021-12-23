@@ -8,16 +8,17 @@
 }
 
 :root{
-  --primary-color: #2c3e50;
+  --primary-color: #091325;
   --secondary-color: #f8c247;
   --font-color: #fff;
   --black-color: #000;
   --grey-color: #808080;
+  /* --dark-blue: #091325; */
 }
 
 nav{
   color: var(--font-color);
-  background-color: var(--primary-color);
+  background-color: var( --primary-color);
   border-bottom: 2px solid var(--secondary-color);
 }
 
@@ -30,6 +31,62 @@ nav{
     margin-right: 18px;
     font-size: 1.2rem;
 }
+
+#navIcons{
+    font-size: 28px;
+}
+
+.navImg{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.hide{
+    display: none;
+}
+
+#navs:hover + .hide {
+    display: block;
+    color: red;
+  }
+
+/* For the search bar */
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 1px solid var(--font-color);
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    /* border-radius: 2px 0 0 2px; */
+    outline: none;
+    color: var(--font-color);
+    background-color: var(--primary-color);
+  }
+  
+  .searchTerm:focus{
+    color: var(--font-color);
+  }
+  
+  .searchButton {
+    width: 70px;
+    height: 36px;
+    border: 1px solid var(--font-color);
+    background: var(--primary-color);
+    text-align: center;
+    color: var(--font-color);
+    /* border-radius: 0 2px 2px 0; */
+    cursor: pointer;
+    font-size: 20px;
+  }
+  /* Search bar ending */
 
 .dropdown .dropdown-menu{
     background-color: var(--primary-color);
@@ -356,9 +413,9 @@ form #login_btn:hover{
 }
 
 .cardContent{
-    background-color: var(--primary-color);
-    max-width: 18rem;
-    color: var(--font-color);
+    /* background-color: var(--primary-color); */
+    /* max-width: 18rem; */
+    color: var(--black-color);
     padding:5px 10px 0 10px;
     border-radius: 0 0 7px 7px;
     margin-top: 2px;
