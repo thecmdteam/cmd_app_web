@@ -37,7 +37,7 @@ const Navbar = (props) => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto mt-2">
                             <Link className="nav-link active" to="/" id="hover">
-                                <FontAwesomeIcon className="mr-2 fa-2x" id='navIcons navs' icon={ faHome }/>
+                                <FontAwesomeIcon className="mr-2 fa-2x" id='navIcons' icon={ faHome }/>
                                 {/* <div className='hide'>Home</div> */}
                             </Link>
 

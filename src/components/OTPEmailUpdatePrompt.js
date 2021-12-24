@@ -39,7 +39,7 @@ const OTPprompt = () => {
                 </div>
              <div>
                     <h4>Account Verification</h4>
-            </div>
+             </div>
 
             <form onSubmit={ handleVerify }>
             <div className="col-12" id="OTPcode">
@@ -56,7 +56,6 @@ const OTPprompt = () => {
              </Link>
             </form>
             </div>
-            
         </div>
     )
 }
