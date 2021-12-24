@@ -42,15 +42,6 @@ nav{
     width: 40px;
 }
 
-.hide{
-    display: none;
-}
-
-#navs:hover + .hide {
-    display: block;
-    color: red;
-  }
-
 /* For the search bar */
 
 .search {

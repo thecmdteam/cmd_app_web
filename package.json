@@ -29,6 +29,7 @@
     "react-modal": "^3.14.3",
     "react-promise-tracker": "^2.1.0",
     "react-redux": "^7.2.6",
+    "react-responsive": "^9.0.0-beta.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-select": "^5.1.0",
